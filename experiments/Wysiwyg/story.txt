@@ -1,0 +1,3 @@
+﻿../Wysiwyg/Wysiwyg/Wysiwyg.html						Create What you see is what you get
+../Wysiwyg/Save_Wysiwyg/Save_wysiwyg.html			Save What you see is what you get
+../Wysiwyg/Load_Wysiwyg/Load_wysiwyg.html			Load What you see is what you get

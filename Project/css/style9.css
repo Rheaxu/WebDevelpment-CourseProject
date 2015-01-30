@@ -1,0 +1,312 @@
+﻿@font-face {
+    font-family: 'WebSymbolsRegular';
+    src: url('websymbols/websymbols-regular-webfont.eot');
+    src: url('websymbols/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('websymbols/websymbols-regular-webfont.woff') format('woff'),
+        url('websymbols/websymbols-regular-webfont.ttf') format('truetype'),
+        url('websymbols/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+      width: 100%;
+      height: 100%;
+     
+      margin:0;
+      padding:0;
+    }
+.ca-menu {
+    padding: 0;
+    width: 87%;
+    text-align: center;
+}
+.ca-menu li{
+    width: 15%;
+    height: 175px;
+    border: 4px solid black;
+    overflow: hidden;
+    position: relative;
+    float:left;
+    background: white;
+    opacity: 0.6;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -webkit-border-radius: 125px;
+    -moz-border-radius: 125px;
+    border-radius: 125px;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+}
+.ca-menu li:last-child{
+    margin-right: 0px;
+}
+.ca-menu li a{
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #333;
+    position: relative;
+}
+.ca-icon{
+    font-family: 'WebSymbolsRegular', cursive;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 7%;
+    text-align: center;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+}
+.ca-main, #LoginStatus1 {
+    font-family: 'Ceviche One', cursive;
+    font-size: 120%;
+    position: absolute;
+    font-weight: bold;
+    top: 55%;
+    height: 50%;
+    width: 100%;
+    opacity: 0.8;
+    text-align: center;
+}
+.ca-sub{
+    text-align:center;
+    color: #000;
+    font-size: 100%;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 57%;
+    opacity: 0;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    transition: all 400ms linear;
+    font-weight: bold;
+}
+.ca-menu li:hover{
+    background: #f7f7f7;
+    border-color: #fff;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+    .ca-menu li:hover .ca-icon {
+       
+    }
+.ca-menu li:hover .ca-main{
+    display: none;
+}
+.ca-menu li:hover .ca-sub{
+    opacity: 0.8;
+}
+
+#top {
+    height: 185px;
+    width: 100%;
+    position: relative;
+}
+
+.nav_header {
+    width:85%;
+    text-align:-webkit-right;
+}
+
+.label_header {
+    width:15%;
+    text-align:left;
+    height:100%;
+}
+
+#home, #strt {
+    height: 80%;
+    width: 40%;
+}
+
+span.loginLabl {
+    color:#2a6496;
+    width:80%;
+}
+
+@media (max-width:766px) {
+    span.loginLabl {
+    font-size:medium;
+}
+}
+
+#abt, #log {
+    height: 100%;
+    width: 50%;
+}
+
+#log {
+  
+  float: left;
+  margin-left: -20%;
+}
+
+#cat {
+    height: 90%;
+    width: 45%;
+}
+
+#tut {
+    height: 100%;
+    width: 40%;
+}
+
+
+#teddy {
+    float: right;
+    clear: right;
+    width: 20%;
+    position: relative;
+}
+
+#text1 {
+    float: left;
+    width: 50%;
+    font-weight: bold;
+}
+
+#text2 {
+    font-size:20px; 
+    font-weight: bold; 
+    text-align: center;
+    }
+
+#placehere {
+    display: none;
+}
+
+#Label1 {
+    font-family: 'Ceviche One', cursive;
+    position: absolute;
+    color: white;
+}
+
+      
+button {
+    /* Size and position */
+    width: 17%;
+    height: 20%;
+    float: left;
+    position: relative;
+    
+    z-index: 3;
+    overflow: hidden;
+    /* Styles */
+    background: #ee4c8d;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow:
+        inset 0 0 4px rgba(255, 255, 255, 0.7), 
+        inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+    border: 2px black;
+    cursor: pointer;  
+    line-height: 35%; /* Same as height */
+}
+
+button i {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    left: -20px;
+    font-size: 100%;
+    line-height: 50%;
+    color: #8d1645;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+button span {
+    display: block;
+
+    /* Font styles */ 
+    color: #8d1645;
+    font-family: 'Ceviche One', cursive; 
+    font-size: 85%;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+
+   
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Focus and hover on button */
+
+button:focus {
+    outline: none;
+}
+
+button:hover span,
+button:focus span {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transform: rotate(-90deg) translateY(-20px);
+    -moz-transform: rotate(-90deg) translateY(-20px);
+    -ms-transform: rotate(-90deg) translateY(-20px);
+    -o-transform: rotate(-90deg) translateY(-20px);
+    transform: rotate(-90deg) translateY(-20px);
+}
+
+button:hover i,
+button:focus i {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    left: 0;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    -ms-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+/* Click on button */
+
+button:active span,
+button:active i {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none; 
+}
+
+button:active span {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+button:active i {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    left: 0;
+    color: #fff;
+}

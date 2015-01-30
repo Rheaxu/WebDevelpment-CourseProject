@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Get to know Javascript</title>
+    <link rel="stylesheet" type="text/css" href="../../../bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+
+</head>
+
+<body>
+    <div id="pageHead" class="container">
+        <h1>Experiment: Get to know Javascript</h1>
+        <p>JavaScript is MAGIC!!!</p>
+        <p>JavaScript is the most popular programming language in the world.
+        <br />
+            JavaScript Can Change HTML<br />
+            The HTML DOM (the Document Object Model) is the standard for accessing HTML elements.
+            Using the DOM, JavaScript can change and manipulate HTML.
+            <br />
+            You can use JavaScript to:<br />
+            Change HTML content<br />
+            Change HTML attributes<br />
+            Change HTML styles
+        </p>
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p>
+            <b>The following button is attched with a javascript to its
+            onclick event</b>
+            <br />
+            When you click it, it will run the javascript and show the date time
+            in the "p" element block
+            <button class="btn btn-info" onclick="document.getElementById('demo').innerHTML = Date()">
+                Click me to display Date and Time.
+            </button>
+            <p id="demo"></p>
+
+            <pre class="snippet">
+&lt;button class="btn btn-info" onclick="document.getElementById('demo').innerHTML = Date()">
+           Click me to display Date and Time.
+&lt;/button>
+            </pre>
+        </p>
+
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/JSExperiments/FirstJavaScript/index.html" target="_blank">HTML</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/js/js_intro.asp" target="_blank">
+            W3Schools Javascript introductionn
+        </a>
+    </div>
+
+</body>
+</html>

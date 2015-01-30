@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: JavaScript Popupp Box</title>
+    <link rel="stylesheet" type="text/css" href="../../../bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+
+</head>
+
+<body>
+    <div id="pageHead" class="container">
+        <h1>Experiment: JavaScript Popup Box</h1>
+        <p>Sometimes, we need to pop up some informations in the browser.
+        The Javascript alert box is really helpful for this</p>
+        
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p><b>1. Alert Box</b></p>
+            <p>Click the following button, you will see a popup alert box with 
+            message "Hi, I am an alert box!!!" After you click the "yes" button,
+            it will disappear.</p>
+            <button class="btn btn-info" onclick="popup()">
+                Get Alert Info
+            </button>
+        <script>
+            function popup() {
+                window.alert("Hi, I am an alert box!!!");
+            }
+        </script>
+        <p>The code for the button is:</p>
+        <pre class="snippet">
+&lt;button class="btn btn-info" onclick="popup()">Get Alert Info&lt;/button>
+</pre>
+            <pre class="snippet">
+&lt;script>
+    function popup() {
+        window.alert("Hi, I am an alert box!!!");
+    }
+&lt;/script>
+            </pre>
+        <p><b>2. Confirm Box</b></p>
+        <p>Sometiems, you want the user to confirm some information. So instead of
+        just give the "OK" choice, you'd rather let them choose yes/no. The 
+        Confirm box is very helpful for this.</p>
+        <button class="btn btn-info" onclick="myConfirm()">Get confirm info</button>
+        <p id="confirm_info"></p>
+        <script>
+            function myConfirm() {
+                var x;
+                if (confirm("Choose Ok or Cancel") == true) {
+                    x = "You pressed OK!"
+                } else {
+                    x = "You pressed Cancel!"
+                }
+                document.getElementById('confirm_info').innerHTML = x;
+            }
+        </script>
+        <p>The code for the button is:</p>
+        <pre class="snippet">
+&lt;button class="btn btn-info" onclick="myConfirm()">Get confirm info</button>
+        </pre>
+        <pre class="snippet">
+&lt;script>
+    function myConfirm() {
+        var x;
+        if (confirm("Choose Ok or Cancel") == true) {
+            x = "You pressed OK!"
+        } else {
+            x = "You pressed Cancel!"
+        }
+        document.getElementById('confirm_info').innerHTML = x;
+    }
+&lt;/script>
+        </pre>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/JSExperiments/JSPopupBox/index.html" target="_blank">HTML</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/js/js_popup.asp" target="_blank">
+            W3Schools Javascript alert and confirm box
+        </a>
+    </div>
+
+</body>
+</html>

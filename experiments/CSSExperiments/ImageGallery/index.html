@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the CSS Experiment
+    
+    Copyright 2012,
+    Richard Rasala,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <style>
+        dif.gallery {
+            width:100%;
+            border:2px solid red;
+            float:none;
+        }
+        span.img {
+            display:inline-block;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #0000ff;
+            height: auto;
+            width: auto;
+            text-align: center;
+        }
+
+        span.img img {
+            display: block;
+            margin: 5px;
+            border: 1px solid #ffffff;
+        }
+
+        span.img a:hover img {
+            width:200px;
+            height:200px;
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(360deg);
+            transition-duration:2s;
+        }
+
+        span.desc {
+            display:block;
+            text-align: center;
+            font-weight: normal;
+            width: 120px;
+            margin: 5px;
+        }
+
+        @media screen and (max-width:300px) {
+            span.img a:hover img {
+                width:100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Experiment: Image Gallery</h1>
+        <p>
+            This is a project related experiments. When you hover on each image in the gallery, it will zoom in.
+            When you click on the image, a blank page will be open to diaply the image.
+            All the functions are implemented mainly by using css.<br />
+            Please see the source file of HTML file to get details.
+        </p>
+        <hr />
+    </div>
+    <div class="gallery">
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/Boston_piano.jpg">
+            <img src="../../../images/my_pic/Boston_piano.jpg" alt="Boston piano" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/piano1.jpg">
+            <img src="../../../images/my_pic/piano1.jpg" alt="piano1" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/mnote1.png">
+            <img src="../../../images/my_pic/mnote1.png" alt="music note1" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/mnote2.jpg">
+            <img src="../../../images/my_pic/mnote2.jpg" alt="music note2" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/papyrus1.jpg">
+            <img src="../../../images/my_pic/papyrus1.jpg" alt="papyrus1" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <span class="img">
+          <a target="_blank" href="../../../images/my_pic/papyrus2.jpg">
+            <img src="../../../images/my_pic/papyrus2.jpg" alt="papyrus2" width="110" height="90">
+          </a>
+          <span class="desc">Add a description of the image here</span>
+        </span>
+        <hr />
+    </div>
+    <div style="float:none">
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/CSSExperiments/ImageGallery/index.html" target="_blank">HTML</a>
+        <h3>Reference</h3>
+        <a href="http://www.w3schools.com/css/css_image_gallery.asp">W3school tutorial on image gallery</a>
+        <br />
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">Image transition</a>
+        <br />
+        <a href="http://dustwell.com/div-span-inline-block.html">span vs. div</a>
+ 
+    </div>
+</body>
+</html>

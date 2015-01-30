@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Templates of JQuery</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var mainContent = $(".main-content");
+            var originalTemplate = $(".mytemplate");
+            var clearbtn = "<button name='clearMytemplate' class='clear-template'>CLEAR</button>";
+            var clear_msg = "Click this button to clear everything in the 'mytemplate'";
+            var recoverbtn = "<button name='recoverMytemplate' class='recover-template'>RECOVER</button>";
+            var recover_msg = "Click this button to recover everything in the 'mytemplate'";
+
+            mainContent.append(clear_msg);
+            mainContent.append(clearbtn);
+
+            mainContent.on("click","button[name=clearMytemplate]",function () {
+                alert("Will clear the content in 'mytemplate'");             
+                mainContent.empty();
+                console.log("Will append recover");
+                mainContent.append(recover_msg);
+                mainContent.append(recoverbtn);
+            });
+            
+            mainContent.on("click","button[name=recoverMytemplate]", function () {
+                alert("Will recover the content in 'mytemplate'");
+                mainContent.empty();
+                mainContent.append(originalTemplate);
+                console.log("Will append clear");
+                mainContent.append(clear_msg);
+                mainContent.append(clearbtn);
+            });
+
+            $(".append").on("click", function () {
+                console.log("Click on the append button");
+                alert("Will append some new content after 'mytemplate'");
+                var newcontent = "<p class='newcontent'>There is no one who loves pain itself,"+ 
+                            "who seeks after it and wants to have it, simply because it is pain...</p>";
+                mainContent.append(newcontent);
+            });
+        });
+        
+    </script>
+</head>
+
+<body>
+    <div id="pageHead">
+        <h1>Experiment: Templates of JQeury</h1>
+        <p><br />
+            This experiment illustrates how we can use existing HTML as a template 
+            to create dynamic content. This is in contrast to creating the dynamic 
+            content from JavaScript. The advantage of using a template is that it 
+            can be styled using WYSIWYG tools, or even a plain browser, without 
+            having the JavaScript. This allows designers to work independently of 
+            JavaScript developers.
+        </p>
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p>
+            The following content is in the class "mytemplate". When you click the "CLEAR" button,
+            evenrything in the "mytemplate" (the box with the light cyan background color) will
+            disappear. And the "CLEAR" button will change to "RECOVER" button. And then when you
+            click the "RECOVER" button, the box will come back and the button will change back to
+            "CLEAR" again.
+        </p>
+        <div class="main-content">
+            <p class="mytemplate">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                 when an unknown printer took a galley of type and scrambled it to make a 
+                type specimen book. It has survived not only five centuries, but also the 
+                leap into electronic typesetting, remaining essentially unchanged. It was 
+                popularised in the 1960s with the release of Letraset sheets containing Lorem 
+                Ipsum passages, and more recently with desktop publishing software like Aldus 
+                PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+        <p>
+            Here, I used the javascript to dynamically generate the button of CLEAR and
+            RECOVER. The click() binding is called a "direct" binding which will only attach 
+            the handler to element that <i>already exist</i>. I won't get bound to elements 
+            created in the future. In order to get the click() works for the dynamically
+            generated button, we need to use delegate on(). I.E. instead of 
+            <pre class="snippet">
+$(".clear-tempalte").click(function () {
+    alert("Will clear the content in 'mytemplate'");             
+    mainContent.empty();
+    console.log("Will append recover");
+    mainContent.append(recover_msg);
+    mainContent.append(recoverbtn);
+});
+            </pre>
+            we should do this:
+            <pre class="snippet">
+mainContent.on("click","button[name=clearMytemplate]",function () {
+    alert("Will clear the content in 'mytemplate'");             
+    mainContent.empty();
+    console.log("Will append recover");
+    mainContent.append(recover_msg);
+    mainContent.append(recoverbtn);
+});
+            </pre>
+        </p>
+        <p>
+            Now, let's append something to the template. When you click the "APPEND" button,
+            some nwe content will be appended to the end of the light cyan box.
+            <br />
+            Click the button to append
+            <button name="appendNew" class="append">APPEND</button>
+        </p>
+        
+        
+    </div>
+    <div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Jquery/2-templates/index.html" target="_blank">HTML</a>
+        <br />
+    </div>
+    <div>
+        <hr />
+        <h2>Reference</h2>
+        <a href="http://stackoverflow.com/questions/19122022/jquery-dynamic-contents-click-doesnt-work" target="_blank">
+            StackOverflow about dynamically generating button
+        </a>
+        <br />
+        <a href="http://api.jquery.com/empty/" target="_blank">JQuery tutorial on empty()</a>
+        <br />
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book Recommendation</title>
+    <script src="../../../javascript/angular.min.js"></script>
+    <link href="../../../css/mystyle2.css" rel="stylesheet"/>
+</head>
+
+<body ng-app>
+    <div class="container" ng-controller="BookRecController">
+        <h1>Experiment: Book Recommendation</h1>
+        <p>
+            This is an experiment related to my project. It's a practice of using API. This API returns
+            json file.
+        </p>
+
+        <input ng-model="genre" class="form-control" placeholder="GENRE"/>
+        <button ng-click="getBooks()" class="btn btn-primary btn-block">Get recommendations</button>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBNS</th>
+                    <th>Book link</th>
+                    <th>Brief review</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="b in books">
+                    <td>{{b.title}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.isbns}}</td>
+                    <td>{{b.book_link}}</td>
+                    <td>{{b.review_snippet}}</td>
+                    <td>{{b.review_link}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+    
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Search_API/BookRecommend/index.html" target="_blank">HTML</a>
+        <h3>Reference</h3>
+        <a href="http://idreambooks.com/api">idream.com api tutorial</a>
+    </div>
+
+    <script>
+        var URL = "http://idreambooks.com/api/publications/recent_recos.json?key=00e5beb6c45e5efa87e0ecc9172275254e13e0a0&slug=GENRE"
+        function BookRecController($scope, $http) {
+            $scope.genre = "fiction";
+            $scope.getBooks = function () {
+                var genre = $scope.genre;
+                console.log(genre);
+                var url = URL.replace("GENRE", genre);
+                console.log(url);
+
+                $http.get(url).success(function (response) {
+                    $scope.books = response;
+                    console.log($scope.books);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

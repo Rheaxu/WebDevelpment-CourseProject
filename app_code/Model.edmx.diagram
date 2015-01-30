@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4971a42502f640f38a1d75f7eba82261" Name="Diagram1">
+        <EntityTypeShape EntityType="rheaxuModel.Application" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.Article" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Applications" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Membership" Width="1.5" PointX="16" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Paths" Width="1.5" PointX="13" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="15.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="15.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Profile" Width="1.5" PointX="20.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Roles" Width="1.5" PointX="13" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_Users" Width="1.5" PointX="18.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.aspnet_WebEvent_Events" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.AuthUser" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.Developer" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.follow" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.memberPhoto" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.memberSheetMusic" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.photoComment" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.Post" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.sheetMusicComment" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.Sponsor" Width="1.5" PointX="7.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.Sponsored" Width="1.5" PointX="10" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.User" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.UserActivation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.userLikeImg" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.userLikeSm" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rheaxuModel.User1" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="rheaxuModel.FK__Applicati__devel__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Me__Appli__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Pa__Appli__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Ro__Appli__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Us__Appli__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Me__UserI__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Pe__PathI__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Pe__PathI__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Pe__UserI__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__aspnet_Pr__UserI__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__follows__followe__531856C7" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__follows__usernam__5224328E" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__memberPho__owner__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__memberShe__owner__57DD0BE4" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__photoComm__usern__690797E6" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__sheetMusi__usern__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__userLikeI__usern__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__userLikeS__usern__5AB9788F" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__photoCommen__pId__681373AD" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__userLikeI__photo__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__sheetMusic__smId__69FBBC1F" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__userLikeSm__smId__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__Post__authorUser__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__Post__ownerUsern__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.FK__Sponsored__spons__0AD2A005" ManuallyRouted="false" />
+        <AssociationConnector Association="rheaxuModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

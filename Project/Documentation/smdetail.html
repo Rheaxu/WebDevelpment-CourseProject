@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sheet Music Detaill Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/doc.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Sheet Music Detaill Page</h1>
+        <p>Only members have access to this page by logging in.</p>
+        <hr />
+        <h2>1. How to access to the sheet music detail page</h2>
+        <p>This has been mentioned in the <a href="allmemberswork.html" target="_blank">Sheet Music Collection and Pohoto 
+            Gallery of all members Page</a>, <a href="mysmcollection.html" target="_blank">My Sheet Music Collection Page</a>
+            and <a target="_blank" href="post.html">Post Sheet Music Page</a></p>
+        <h2>2. Basic information of the sheet music</h2>
+        <p>1. The basic information includes: Title, Author (the member who put this sheet music in his/her collection), Create Time,
+         Description and count of likes.</p>
+        <p>2. You can "Like" or "Unlike" this sheet music on this page</p>
+        <p>3. Go to the author's profile by clicking the author's name</p>
+        <p>4. You can play the sheet music by clicking the play button</p>
+        <div class="container">
+            <img class="bigimg" src="images/smdetail1.png" />
+        </div>
+        <h2>3. Members who like this sheet music</h2>
+        <p>At the bottom information, you can see all the members who like this sheet music. You can explore
+         their profile by cliking their names.</p>
+        <p>This information is stored in the table userLikeSm. I used the following code to get it:</p>
+        <pre>
+var likes = (from s in context.userLikeSms where s.smId == smId select s).Count();
+likeCountLabel.Text = "Likes: " + likes.ToString();
+var likeUsersList = (from s in context.userLikeSms where s.smId ==smId select s).ToList();
+likeUserRepeater.DataSource = likeUsersList;
+likeUserRepeater.DataBind();
+    </pre>
+        <h2>4. Add to my Collection</h2>
+        <p>By clicking the "Add to my Collection" button, you will be navigated to post sheet music page to add
+        this work to your collection.</p>
+        <h2>5. Comments</h2>
+        <p>All comments of this sheet music are listed at the bottom. You also can add your own comments.</p>
+        <p>By clicking the commentor's name, you can go to his/her profile.</p>
+        <div class="container">
+            <img class="bigimg" src="images/smdetail2.png" />
+        </div>
+        <p>The comments are stored in table sheetMusicComments, I used the following code to get them:</p>
+        <pre>
+List&lt;sheetmusiccomment> pCmntObjList = (from s in context.sheetMusicComments where s.smId == smId orderby s.createTime descending select s).ToList();
+CmntCountLabel.Text = pCmntObjList.Count() + " comments for this sheet music";
+cmntRepeater.DataSource = pCmntObjList;
+cmntRepeater.DataBind();
+        </pre>
+        <br /><hr />
+        <h1>Link to files:</h1>
+        <a href="../../fileview/Default.aspx?~/Project/member/sheetMusicDetail.aspx" target="_blank">Source code of Sheet Music Detaill Page</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/member/sheetMusicDetail.aspx.cs" target="_blank">Source code of Sheet Music Detaill Page C# code</a><br />
+        <br /><br />   
+    </div>
+</body>
+</html>

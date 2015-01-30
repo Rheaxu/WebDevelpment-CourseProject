@@ -1,0 +1,12 @@
+﻿../story/whatisnext.htm?../experiments/whatisnext.txt	What is Next
+../story/index.htm?../experiments/AngularJS/story.txt	AngularJS Experiments
+../story/index.htm?../experiments/CSSExperiments/story.txt	CSS Experiments
+../story/index.htm?../experiments/HTML/story.txt			HTML
+../story/index.htm?../experiments/ASPNETBasic/story.txt		ASP.NET Basic controls
+../story/index.htm?../experiments/JSExperiments/story.txt	Java Script Experiments
+../story/index.htm?../experiments/Jquery/story.txt			Jquery 
+../story/index.htm?../experiments/Search_API/story.txt		Search API
+../story/index.htm?../experiments/MusicAPI/story.txt		Music API
+../story/index.htm?../experiments/ServerClient/story.txt		Server Client Practice
+../story/index.htm?../experiments/OpenShift_Express_MongoDB/story.txt		OpenShift Express MongoDB
+../story/index.htm?../experiments/Wysiwyg/story.txt			What you see is what you get

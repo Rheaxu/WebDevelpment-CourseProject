@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Express Request</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <style>
+        pre.OS_info {
+            word-wrap:break-word;
+            background-color: lightgray;
+            font-size:medium;
+            border:2px, solid, black;
+        }
+        img.url {
+            width:100%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: Express Request</h1>
+        <p>
+            Express is a minimal and flexible Node.js web application framework that provides a robust set of 
+            features for web and mobile applications.<br />
+            This experiments practices on how to use experss request and response module.
+        </p>
+        <hr />
+        <p>
+            <b>1. res.send([body]) ---- Send a response</b><br />
+            In the following code, the server send back a response "This is a plain response sent 
+            from server" in a plain format.
+            <pre class="OS_info">
+app.get('/res_sendpalinres', function (req, res) {
+    res.send("This is a plain response sent from server");
+});
+            </pre>
+            <a href ="http://experimentapp-ruiyuxu.rhcloud.com/res_sendpalinres" target="_blank">
+                <u><i>Response sends palin text</i></u>
+            </a><br />
+            <b>2.res.json([body]) ---- Send a response in json format</b>
+            In the following code, the server send back a response 
+            <pre class="OS_info">
+app.get('/res_sendjsonres', function (req, res) {
+    res.json({name:"message"});
+});
+            </pre>
+            <a href ="http://experimentapp-ruiyuxu.rhcloud.com/res_sendjsonres" target="_blank">
+                <u><i>Response sends json text</i></u>
+            </a><br />
+            <b>3.res.redirect([status],url) ---- Redirect to another page</b>
+            The following code redirect the page to google main page 
+            <pre class="OS_info">
+app.get('/res_redirecttogoogle', function (req, res) {
+    res.redirect('http://www.google.com');
+});
+            </pre>
+            <a href ="http://experimentapp-ruiyuxu.rhcloud.com/res_redirecttogoogle" target="_blank">
+                <u><i>Response Redirect the page to google</i></u>
+            </a><br />
+            <b>4.res.download(path,[filename],[fn]) ---- Download a file</b>
+            The following code downloads a file when you go to the page
+            <pre class="OS_info">
+app.get('/res_download', function (req, res) {
+    res.download('../../images/qmark.jpg');
+});
+            </pre>
+            <a href ="http://experimentapp-ruiyuxu.rhcloud.com/res_download" target="_blank">
+                <u><i>Response download a file</i></u>
+            </a><br />
+        </p>
+        
+        <hr />
+        <h2>Source</h2>
+        <a href="server.js" target="_blank">server.js</a>
+        <br />
+        <a href="http://experimentapp-ruiyuxu.rhcloud.com/helloworld" target="_blank">First trial on OpenShift</a>
+        <a ></a>
+        <h2>Reference</h2>
+        <a href="http://expressjs.com/api.html" target="_blank">Express API</a>
+        
+
+    </div>
+
+
+    <!--iframe id="storyFrame" width="100%" height="100px"
+        frameborder="0" marginwidth="0px" marginheight="0px" ></!--iframe-->
+</body>
+</html>

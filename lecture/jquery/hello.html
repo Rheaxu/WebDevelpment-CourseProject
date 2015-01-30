@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        h1 {
+            background-color:blue;
+        }
+            h1.green {
+                background-color:green; 
+            }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // By this way, no need to give function name
+        });
+
+        $(init); 
+        function init() {
+            alert("Hello World");
+            jQuery("h1").html("Hello World from JQeury");          //applies to all "h1"
+            jQuery(".green").html("Only change green");
+            jQuery("#goodbye").html("Goodbye from jQuery");
+            $(".green").css("color", "green");
+            $(".green").css("background-color", "red");
+
+            $(".green")
+                .html("Hello World from JQuery")
+                .css("color","green")
+                .css("background-color", "red") //execute in order
+
+            $(".green")
+                .html("Hello World from JQuery")
+                .css({ "color": "green","background-color":"yellow"}) //Put change of the same element to a json obj
+
+            //$ can replace jQuery
+            // jquery comes after css
+
+            //$("#goodbye").empty();
+            $("#goodbye").append(" Hello again ");
+
+            // for ul dynamically
+            var h2 = "<h2>Dynamically added H2</h2>";
+            $(h2).appendTo("body");   //appenTo(<name of tag>)
+            //$("<h2>Dynamically added H2</h2>").appendTo("body")   --- same
+           
+            var values = [123, 234, 345, 456, 567];
+
+            var li = "<li>Dynamic line item</li>";
+
+            $("ul#list").append(li);
+            $("ul#list").append(li);
+            $("ul#list").append(li);
+
+            var ul = $("ul#list");
+
+            for (var i = 0; i < values.length; i++) {
+                var dli = $(li);
+                dli.append(" "+values[i]);
+                ul.append(dli);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 id="goodbye">Hello World</h1>
+    <p>Hello</p>
+    <h1 class="green">Hello World</h1>
+    <p class="green">Hello</p>
+    <h1 class="green">Hello World</h1>
+    <ul id="list">
+
+    </ul>
+</body>
+</html>

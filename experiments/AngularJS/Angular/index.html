@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the Angular Experiment
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Angularjs</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="../../../javascript/angular.min.js"></script>
+    <style type="text/css">
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        font-family:'Comic Sans MS';
+        text-align:center;
+        list-style:none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    li.navigation
+    {
+        display:inline-flexbox;
+        padding: 2px 2px 2px 2px;
+        border:5px solid green;
+        border-radius:15px;
+        background-color:lightyellow;
+        margin:5px 5px 5px 5px
+    }
+    li.important_nav 
+    {
+        margin: 120px 5px 120px 5px;
+    }
+    li.decription 
+    {
+        text-align:center;
+        list-style:none;
+        border-radius:300px;
+        background-color:aqua;
+        margin:5px 5px 5px 5px;
+        border:3px groove blue;
+        padding:20px 20px 20px 20px;
+        content:circle;
+    }
+
+    img.relative
+    {
+        position:relative;
+    }
+
+    a
+    {
+        color: #08f;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #f00;
+    }
+
+    p.info 
+    {   
+        font-size:medium;
+        text-align:center;
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+    p.maindescription {
+        font-size:large;
+    }
+    div.demo {
+        border:5px solid skyblue;
+        padding:20px 20px 20px 20px;
+        background-color:bisque;
+    }
+
+</style>
+
+</head>
+
+<body ng-app>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: Angularjs</h1>
+        
+        <hr />
+        
+        <h2>I. What is Angular</h2>
+        <p class="maindescription">AngularJS is an open-source web application framework, maintained by
+            Google and community, that assists with creating single-page applications, which consist of
+            one HTML page with CSS, and JavaScript on the client side. Its goal is to simplify both
+            development and testing of web applications by providing client-side model–view–controller
+            (MVC) capability as well as providing structure for the entire development process, from
+            design through testing.</p>
+        
+        <h2>II. Use Angularjs</h2>
+        <h3>Click <a href="https://angularjs.org/">here</a> to download Angularjs and put it in you javascript folder</h3>
+        <h3>import the angular components</h3>
+        <pre>&lt;script src="..../javascript/angular.min.js"&gt;</pre>
+        <h3>Example of how to use angularjs</h3>
+        <div class="demo">
+            <pre>
+                &lt;div ng-controller="HelloWorldController">
+                &lt;Wh2>Msg from hello world controller&lt;/Wh2>
+                {{message}}
+                &lt;div>
+
+                &lt;script>
+                    function HelloWorldController($scope) {
+                    $scope.message = "Hello World";
+                    console.log("Hello World")
+                }
+                &lt;script>
+            </pre>
+            <p>The code above will give the following result</p>
+            <div ng-controller="HelloWorldController">
+            <h2>Msg from hello world controller</h2>
+            {{message}}
+            </div>
+
+            <script>
+                function HelloWorldController($scope) {
+                    $scope.message = "Hello World";
+                    console.log("Hello World")
+                }
+            </script>
+        </div>
+        <h3>Explanation of the example</h3>
+        <ul>
+            <li>"ng-controller" looks for the function with name "HelloWorldController"</li>
+            <li>"&lt;div ng-controller="HelloWorldController">": The div is the scope for the view</li>
+            <li>{{message}}A template. A space holder where we can put data. The scope of the controller can modify</li>
+            <li>function HelloWorldController($scope) is the definition of the function HelloWorldController</li>
+        </ul>
+        <h3>Example2</h3>
+        <div class="demo">
+            <pre>
+                &lt;div ng-controller="EmployeeController">
+                &lt;h2>Result from EmployeeController&lt;/h2>
+                &lt;table class="table">
+                    &lt;tr ng-repeat="employee in employees">
+                        &lt;td>{{employee.firstName}}&lt;/td>
+                        &lt;td>{{employee.lastName}}&lt;/td>
+                        &lt;td>{{employee.salary}}&lt;/td>
+                    &lt;/tr>
+                &lt;/table>
+                &lt;/div>
+
+                &lt;script>
+                    function EmployeeController($scope) {
+                        var alice = {
+                            firstName: "Alice",
+                            lastName: "Wonderland",
+                            salary: 123321
+                        };
+
+                        var bob = {
+                            firstName: "Bob",
+                            lastName: "Marley",
+                            salary: 234234
+                        };
+
+                        var charlie = {
+                            firstName: "Charlie",
+                            lastName: "Garcia",
+                            salary: 543253
+                        }
+
+                        var employees = [alice, bob, charlie]
+                        $scope.employees = employees;
+                    }
+                &lt;/&lt;script>
+            </pre>
+            <p>The code above will give the following result</p>
+            <div ng-controller="EmployeeController">
+            <h2>Result from EmployeeController</h2>
+            <table class="table">
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.salary}}</td>
+                </tr>
+            </table>
+            </div>
+
+            <script>
+                function EmployeeController($scope) {
+                    var alice = {
+                        firstName: "Alice",
+                        lastName: "Wonderland",
+                        salary: 123321
+                    };
+
+                    var bob = {
+                        firstName: "Bob",
+                        lastName: "Marley",
+                        salary: 234234
+                    };
+
+                    var charlie = {
+                        firstName: "Charlie",
+                        lastName: "Garcia",
+                        salary: 543253
+                    }
+
+                    var employees = [alice, bob, charlie]
+                    $scope.employees = employees;
+                }
+            </script>
+        </div>
+        
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/AngularJS/Angular/index.html" target="_blank">HTML</a>
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/angular/default.asp">Angularjs tutorial from w3schools</a>
+        <br />  
+        <a href="http://en.wikipedia.org/wiki/AngularJS">wikipedia</a>
+    </div>
+    
+</body>
+</html>

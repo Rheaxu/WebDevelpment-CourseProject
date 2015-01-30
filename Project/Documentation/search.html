@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/doc.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Search</h1>
+        <p>Both guest (unregistered users) and member (registered users) can use this function</p>
+        <a href="../searchImg.aspx" target="_blank">Go to search page</a>
+        <hr />
+        <h2>1. overview</h2>
+        <p>One of the main function of this website is to search whatever photos and sheet musics members like.
+        <br />
+        This part is implemented by using Google Search Image API and MuseScore Developer API.<br />
+        For more details, please check out the following links:
+        </p>
+        <ul>
+            <li><a href="https://developers.google.com/image-search/v1/index" target="_blank"><b>Google Image Search API</b></a></li>
+            <li><a href="http://www.c-sharpcorner.com/UploadFile/29d7e0/google-image-search-in-asp-net/" target="_blank"><b>A tutorial on how to use Google Image Search API with C# ASP.NET</b></a></li>
+            <li><a href="http://developers.musescore.com/" target="_blank"><b>MuseScore API</b></a></li>
+        </ul>
+        <h2>2. How to search</h2>
+        <p>Click the "Search" on the navigation bar to go to the search page.<br />
+            Type the key words of your searching.<br />
+        If you click "Search Image", The table will display searching results for images.</p>
+        <div class="displaycenter">
+            <img class="bigimg" src="images/searchimg.png"/>
+        </div>
+        <p>If you click "Search Sheet Music". The Table will display searching results for sheet musics.</p>
+        <div class="displaycenter">
+            <img class="bigimg" src="images/searchsm.png" />
+        </div>
+        <h2>3. Preview search result</h2>
+        <p>Click the orange "Preview" button, you will go to a <a target="_blank" href="preview.html">preview page</a> for more details.</p>
+        <h2>4. How to get image data</h2>
+        <p>To use the Google Image Search API, we should <a href="https://code.google.com/p/google-api-for-dotnet/">
+            download the GoogleSearchAPI.dll</a></p>
+        <p>The code to get search data is very simple:</p>
+        <pre>
+GimageSearchClient client = new GimageSearchClient("www.c-sharpcorner.com");
+IList&lt;IImageresult> results = client.Search(TextBox1.Text, 30);
+        </pre>
+        <p>Then generate a database, put the search results into the database and bind it to the data repeater control:</p>
+        <pre>
+foreach (IImageResult result in results)
+{
+    DataRow dr = dt.NewRow();
+    dr["Title"] = result.Title.ToString();
+    dr["OriginalContextUrl"] = result.OriginalContextUrl;
+    dr["Width"] = Convert.ToInt32(result.Width);
+    dr["Height"] = Convert.ToInt32(result.Height); 
+    dr["Url"] = result.Url;
+    dt.Rows.Add(dr);
+} 
+dlSearch1.DataSource = dt;
+dlSearch1.DataBind();
+        </pre>
+        <h2>5. How to get Sheet Music data</h2>
+        <p>To use the MuseScore API, you should send email to MuseScore (api@musescore.com) to ask for a key.<br />
+            After you get the key, you can use it to send request for search.<br />
+        The Server returns you the search result in XML format. So you should get the xml data and iterate over it
+        to get those contents you need.<br />
+        As what we did for the image data, you should create a table, store the data in the table and bind it to
+        your repeater.</p>
+        <pre>
+string searchBasicURL = "http://api.musescore.com/services/rest/score.xml?oauth_consumer_key=YOUR_KEY&text=";
+string searchTxt = TextBox1.Text;
+string searchURL = searchBasicURL + searchTxt;
+DataSet ds = new DataSet();
+DataTable dt = new DataTable();
+dt.Columns.Add(new DataColumn("custom_url", typeof(string)));
+dt.Columns.Add(new DataColumn("title", typeof(string)));
+string data = SimpleProxy.GetResponseContent(searchURL);
+StringReader sReader = new StringReader(data);
+XmlReader reader = XmlReader.Create(sReader);
+bool read_customurl = true;
+bool read_title = true;
+DataRow dr = dt.NewRow();
+while(reader.Read())
+{
+    if (!reader.IsStartElement() && reader.Name.ToString() == "score") {
+        dt.Rows.Add(dr);
+        read_customurl = true;
+        read_title = true;
+        dr = dt.NewRow();
+        continue;
+    }
+    if (reader.IsStartElement())
+    {
+        string eleName = reader.Name.ToString();
+        if (eleName == "custom_url" && read_customurl)
+        {
+            string curl = reader.ReadString();
+            read_customurl = false;
+            dr["custom_url"] = curl;
+        }
+        if (eleName == "title" && read_title)
+        {
+            string title = reader.ReadString();
+            read_title = false;
+            dr["title"] = title;
+        }
+    }
+} 
+dlSearch2.DataSource = dt;
+dlSearch2.DataBind();
+</pre>
+        <br /><hr />
+        <h1>Link to files:</h1>
+        <a href="../searchImg.aspx" target="_blank">Search</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/searchImg.aspx" target="_blank">Source code of search Page</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/searchImg.aspx.cs" target="_blank">Source code of search Page C# code</a><br />
+        <br /><br />   
+    </div>
+</body>
+</html>

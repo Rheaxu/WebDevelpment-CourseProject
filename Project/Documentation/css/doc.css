@@ -1,0 +1,12 @@
+﻿div.aligncenter {
+    text-align:center;
+}
+div.displaycenter {
+    text-align:center;
+    border:1px solid black;
+}
+
+.bigimg {
+    width:100%;
+    height:100%
+}

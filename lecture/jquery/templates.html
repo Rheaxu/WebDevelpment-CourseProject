@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        li.instances {
+            background-color:red;
+
+        }
+        h1 {
+            background-color:blue;
+        }
+        h1.green {
+            background-color:green; 
+        }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <link href =""/>
+    <script>
+
+        $(function () {
+            var hello = $(".hello");
+            var clone = hello.clone();
+            $("body").append(hello.clone());
+            $("body").append(hello.clone());
+            $("body").append(hello.clone());   //each time has to clone() again
+
+            var data = [
+                { first: "Alice", last: "Wonderland", salary: 213123 },
+                { first: "Bob", last: "Dyllan", salary: 213123 },
+                { first: "Charlie", last: "Garcia", salary: 213123 },
+                { first: "Dan", last: "Akroyd", salary: 213123 },
+                { first: "Edward", last: "Norton", salary: 213123 },
+            ];
+
+            //var liOriginal = $("li.template").empty().clone();
+            //empty removes everything
+            var liOriginal = $("li.template").clone();
+            $("li.template").remove();
+            liOriginal.removeClass("template").addClass("instances")
+            console.log(data);
+
+            for (var i = 0; i < data.length; i++) {
+                var record = data[i];
+                console.log(record);
+                var first = record.first;
+                var last = record.last;
+                var salary = record.salary;
+                console.log([first, last, salary]);
+                var string = first + " " + last + " $" + salary;
+
+                var li = liOriginal.clone();    //clone() create a brand new instance. The html is already used otherwise
+                li.find(".first").html(first);
+                li.find(".last").html(last);
+                li.find(".salary").html(salary);
+                li.append(string);
+                //$("ul").append(li);
+                $(".template-container").append(li);
+            }
+        });
+ 
+    </script>
+</head>
+<body>
+    <h1 class="hello">Hello World</h1>
+    <!--ul>
+        <li class="template">
+            <span class="first"></span>
+            <span class="last"></span>
+            <span class="salary"></span>
+        </li>
+    </!--ul-->
+    <hr />
+    <table class="table template-container">
+        <tr class="template">
+            <td class="first"></td>
+            <td class="last"></td>
+            <td class="salary"></td>
+        </tr>
+    </table>
+</body>
+</html>

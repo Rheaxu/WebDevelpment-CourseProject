@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Database Overview</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/doc.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Database Overview</h1>
+        <hr />
+        <div class="container ">
+            <img class="bigimg" src="images/EntityDesignerDiagram.bmp"/>
+        </div>
+        <h1>1. Table List</h1>
+        <ol>
+            <li>AuthUser: The basic information of all registered users</li>
+            <li>memberPhoto: Information table of photos that are in members' galleries. </li>
+            <li>memberSheetMusic: Information table of Sheet Musics that are in members' collections.</li>
+            <li>userLikeImg: Relationships of which user likes which photo</li>
+            <li>userLikeSm: Relationships of which user likes which sheet music</li>
+            <li>sheetMusicComment: Each comment for each sheet music</li>
+            <li>photoComment: Each comment for each photo</li>
+            <li>follow: the following relationships between each pair of users.</li>
+        </ol>
+        <h1>2. ADO.NET Entity Data Model</h1>
+        <p>The <a href="http://msdn.microsoft.com/en-us/library/vstudio/cc716685(v=vs.100).aspx" target="_blank">ADO.NET Data Model</a> is used
+         for the database of the website.</p>
+        <p>Please check the above link for more details</p>
+        <hr />
+        <h2>Link to files:</h2>
+        <a href="../../fileview/Default.aspx?~/app_code/Model.cs" target="_blank">Database Entity Object</a>
+        <br /><br />
+    </div>
+</body>
+</html>

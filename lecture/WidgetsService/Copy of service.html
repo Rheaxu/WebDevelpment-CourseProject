@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+
+    <script>
+        $(function () {
+            alert("Hello");
+
+            $.ajax({
+                url:"http://",
+                success: processResponse
+            });
+            function processResponse(response){
+                console.log(response);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Asmx Web Serice</h1>
+    </div>
+</body>
+</html>

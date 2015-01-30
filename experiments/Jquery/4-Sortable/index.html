@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Nov. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: JQuery Sortable</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css"/>
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script src="../../javascript/jquery-ui.min.js"></script>
+    <script>
+        $(function init() {
+           
+            $(".list").sortable({
+                axis: 'y',
+                connectWith:".list"
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="pageHead">
+        <h1>Experiment: JQuery Sortable</h1>   
+        
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <ul class="list">
+            <li>Value 1</li>
+            <li>Value 2</li>
+            <li>Value 3</li>
+            <li>Value 4</li>
+            <li>Value 5</li>
+        </ul>
+        <ul class="list">
+            <li>Value A</li>
+            <li>Value B</li>
+            <li>Value C</li>
+            <li>Value D</li>
+            <li>Value E</li>
+        </ul>
+        
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Jquery/4-Sortable/index.html" target="_blank">HTML</a>
+        <br />
+    </div>
+    <div>
+        <hr />
+        <h2>Reference</h2>
+        <a href="http://api.jqueryui.com/draggable/" target="_blank">
+            JQuery UI document
+        </a>
+        <br />
+    </div>
+
+</body>
+</html>

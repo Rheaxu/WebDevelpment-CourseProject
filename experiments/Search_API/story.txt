@@ -1,0 +1,3 @@
+﻿../Search_API/BookRecommend/index.html			Vook Recommenda API
+../Search_API/WeatherClient/index.html		Weather Client API
+../Search_API/GoogleSearchImg/searchImg.aspx	Google Search Image API

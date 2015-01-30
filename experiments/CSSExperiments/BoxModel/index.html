@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the Box Model
+    
+    Copyright 2014,
+    Richard Rasala,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Spet. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Box Model</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <style>
+        div.outmost {
+            width: 92%;
+            height:100%;
+            border: 25px solid pink;
+            margin: 5px;
+        }
+        div.margin {
+            width: 300px;
+            height: 300px;
+            border:1px dotted black;
+            padding: 0px 0px 0px 0px;
+            background-color:white;
+            text-align:center;
+            margin:5px 30% 5px 30%;
+            font-size:x-large;
+        }
+        div.boxcomp {
+            width: 80%;
+            height: 80%;
+            border: 1px dotted black;
+            margin:0 10% 10% 10%;
+            padding:0px 0px 0px 0px;
+            background-color:white;
+            text-align:center;
+            font-size:medium;
+        }
+        div.border {
+            background-color:greenyellow;
+            border:1px solid black;
+            font-size:large;
+        }
+        div.padding {
+            border:1px solid black;
+        }
+        div.origin {
+            width:150px;
+            height:150px;
+            margin:20px;
+            border:5px solid red;
+            padding:2px 2px 2px 2px;
+        }
+        div.change1 {
+            margin:30px;
+        }
+        div.change2 {
+            padding:15px 15px 15px 15px;
+        }
+        div.change3 {
+            border:10px dashed blue;
+        }
+        p.maindescription {
+            font-size:large;
+        }
+        label.boxname {
+            height:10%;
+            width:100%;
+            margin:0px 0px 1px 0px;
+            padding:0px;
+            border:1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pageHead">
+        <h1>Experiment: Box Model</h1>
+        <hr />
+        <div class="outmost col-sm-12">
+            <h2>I. What is box model</h2>
+            <p class="maindescription">
+                All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
+
+    The CSS box model is essentially a box that wraps around HTML elements, and it consists of: margins, borders, padding, and the actual content.
+
+    The box model allows us to add a border around elements, and to define space between elements.
+
+    The image below illustrates the box model:
+            </p>
+            <div class="margin col-sm-7" >
+                <label>Margin</label>
+                <div class="boxcomp border">
+                    <label>Border</label>
+                    <div class="boxcomp padding">
+                        <label>Padding</label>
+                        <div class="boxcomp">
+                            <label>Content</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+
+            <h2>II. How to play with box</h2>
+
+        
+            <ul>
+                <li>
+                    <p class="maindescription">Let's start to paly with the box from the origin box:</p>
+                    <div class="snippet col-sm-6">
+                        <p><span class="brown">div.origin</span><!--
+                        --><span class="black">&nbsp;{</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;width</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;height</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;margin</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">20px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;border</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">5px&nbsp;solid&nbsp;red</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;padding</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">2px&nbsp;2px&nbsp;2px&nbsp;2px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="black">}</span></p>
+                    </div>
+                    <div class="origin col-sm-6">
+                        This is the content inside the div. You will see how it changes in the following experiment. Values of attributes
+                        are changing.
+                    </div>
+                </li>
+                <li>
+                    <p>Change the margin from 20px to 30px</p>
+                    <div class="snippet col-sm-6">
+                        <p><span class="brown">div.origin</span><!--
+                        --><span class="black">&nbsp;{</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;width</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;height</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;margin</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">30px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;border</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">5px&nbsp;solid&nbsp;red</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;padding</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">2px&nbsp;2px&nbsp;2px&nbsp;2px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="black">}</span></p>
+                    </div>
+                    <div class="origin change1 col-sm-6">
+                        This is the content inside the div. You will see how it changes in the following experiment. Values of attributes
+                        are changing.
+                    </div>
+                </li>
+                <li>
+                    <p>Change the padding from 2px to 15px</p>
+                    <div class="snippet col-sm-6">
+                        <p><span class="brown">div.origin</span><!--
+                        --><span class="black">&nbsp;{</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;width</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;height</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;margin</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">20px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;border</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">5px&nbsp;solid&nbsp;red</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;padding</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">15px&nbsp;15px&nbsp;15px&nbsp;15px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="black">}</span></p>
+                    </div>
+                    <div class="origin change2 col-sm-6">
+                        This is the content inside the div. You will see how it changes in the following experiment. Values of attributes
+                        are changing.
+                    </div>
+                </li>
+                <li>
+                    <p class="maindescription">Change the border:</p>
+                    <div class="snippet col-sm-6">
+                        <p><span class="brown">div.origin</span><!--
+                        --><span class="black">&nbsp;{</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;width</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;height</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">150px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;margin</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">20px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;border</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">10px&nbsp;dashed&nbsp;blue</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="brown">&nbsp;&nbsp;&nbsp;&nbsp;padding</span><!--
+                        --><span class="black">:</span><!--
+                        --><span class="blue">2px&nbsp;2px&nbsp;2px&nbsp;2px</span><!--
+                        --><span class="black">;</span></p>
+                        <p><span class="black">}</span></p>
+                    </div>
+                    <div class="origin change3">
+                        This is the content inside the div. You will see how it changes in the following experiment. Values of attributes
+                        are changing.
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/Experiments/experimentfiles/BoxModel/index.html" target="_blank">HTML</a>
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/css/css_boxmodel.asp">Box Model tutorial from w3schools</a>
+    </div>
+
+</body>
+</html>

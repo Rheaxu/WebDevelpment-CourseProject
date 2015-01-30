@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the Angular Experiment
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Learn ASP.NET Web Forms- Server Controls</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="../../javascript/angular.min.js"></script>
+    <style type="text/css">
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        font-family:'Comic Sans MS';
+        text-align:center;
+        list-style:none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    li.navigation
+    {
+        display:inline-flexbox;
+        padding: 2px 2px 2px 2px;
+        border:5px solid green;
+        border-radius:15px;
+        background-color:lightyellow;
+        margin:5px 5px 5px 5px
+    }
+    li.important_nav 
+    {
+        margin: 120px 5px 120px 5px;
+    }
+    li.decription 
+    {
+        text-align:center;
+        list-style:none;
+        border-radius:300px;
+        background-color:aqua;
+        margin:5px 5px 5px 5px;
+        border:3px groove blue;
+        padding:20px 20px 20px 20px;
+        content:circle;
+    }
+
+    img.relative
+    {
+        position:relative;
+    }
+
+    a
+    {
+        color: #08f;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #f00;
+    }
+
+    p.info 
+    {   
+        font-size:medium;
+        text-align:center;
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+    p.maindescription {
+        font-size:large;
+    }
+    div.demo {
+        border:5px solid skyblue;
+        padding:20px 20px 20px 20px;
+        background-color:bisque;
+    }
+
+</style>
+
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: Learn ASP.NET Web Forms- Server Controls</h1>
+        <p>This experiment mainly learns the web form of asp.net by reading some
+        online materials.</p>
+        <hr />
+        
+        <h2>1. ASP.NET - Server Controls</h2>
+        <div>
+            ASP.NET has solved the "spaghetti-code" problem described above with server controls.
+            Server controls are tags that are understood by the server.
+            There are three kinds of server controls:  
+            <ul>
+                <li>HTML Server Controls - Traditional HTML tags</li>
+                <li> Web Server Controls - New ASP.NET tags</li>
+                <li>Validation Server Controls - For input validation</li>
+            </ul>      
+        </div>
+        <h2>2. ASP.NET - HTML Server Controls</h2>
+        <div>
+            HTML server controls are HTML tags understood by the server.
+            <br />
+            HTML elements in ASP.NET files are, by default, treated as text. To make these elements programmable, add a runat="server" attribute to the HTML element. This attribute indicates that the element should be treated as a server control. The id attribute is added to identify the server control. The id reference can be used to manipulate the server control at run time.
+            <br />
+            Note: All HTML server controls must be within a &lt;form><br />
+                tag with the runat="server" attribute. The runat="server" attribute indicates that the form should be processed on the server. It also indicates that the enclosed controls can be accessed by server scripts.
+            <br />
+                In the following example we declare an HtmlAnchor server control in an .aspx file. Then we manipulate the HRef attribute of the HtmlAnchor control in an event handler (an event handler is a subroutine that executes code for a given event). The Page_Load event is one of many events that ASP.NET understands:
+        <pre class="snippet">
+&lt;script runat="server">
+    Sub Page_Load
+    link1.HRef="http://www.w3schools.com"
+    End Sub
+&lt;/script>
+&lt;html>
+    &lt;body>
+        &lt;form runat="server">
+        &lt;a id="link1" runat="server">Visit W3Schools!&lt;/a>
+        &lt;/form>
+    &lt;/body>
+&lt;/html>
+</pre>
+        </div>
+        <h2>3. ASP.NET - Web Server Controls</h2>
+        <p>
+            Web server controls are special ASP.NET tags understood by the server.
+            <br />
+            Like HTML server controls, Web server controls are also created on the server and they require a runat="server" attribute to work. However, Web server controls do not necessarily map to any existing HTML elements and they may represent more complex elements.
+            <br />
+            The syntax for creating a Web server control is:
+        </p>
+        <pre class="snippet">
+&lt;asp:control_name id="some_id" runat="server" />
+        </pre>
+        <p>In the following example we declare a Button server control in an .aspx file. Then we create an event handler for the Click event which changes the text on the button:</p>
+        <pre class="snippet">
+&lt;script runat="server">
+    Sub submit(Source As Object, e As EventArgs)
+    button1.Text="You clicked me!"
+    End Sub
+&lt;/script>
+&lt;html>
+&lt;body>
+&lt;form runat="server">
+&lt;asp:Button id="button1" Text="Click me!"
+            runat="server" OnClick="submit" />
+&lt;/form>
+&lt;/body>
+&lt;/html>
+</pre>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/ASPNETBasic/WebForms/index.html" target="_blank">HTML</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="http://www.w3schools.com/aspnet/aspnet_controls.asp" target="_blank">W3Schools asp.net server control tutorial</a>
+        <br />  
+    </div>
+
+</body>
+</html>

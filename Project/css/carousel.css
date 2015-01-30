@@ -1,0 +1,172 @@
+﻿div#carousel { 
+  perspective: 1200px; 
+  padding-top: 2%; 
+  padding-bottom:2%;
+  font-size:0; 
+  margin-bottom: 3rem; 
+  overflow: hidden; 
+}
+figure#spinner { 
+  transform-style: preserve-3d;
+  height:400px; 
+  transform-origin: 50% 50% -500px; 
+  transition: 1s; 
+} 
+figure#spinner img { 
+  width: 40%; max-width: 425px; 
+  position: absolute; left: 30%;
+  transform-origin: 50% 50% -500px;
+  outline:1px solid transparent; 
+}
+figure#spinner img:nth-child(1) { transform:rotateY(0deg); 
+}
+figure#spinner img:nth-child(2) { transform: rotateY(-45deg); }
+figure#spinner img:nth-child(3) { transform: rotateY(-90deg); }
+figure#spinner img:nth-child(4) { transform: rotateY(-135deg); }
+figure#spinner img:nth-child(5){ transform: rotateY(-180deg); }
+figure#spinner img:nth-child(6){ transform: rotateY(-225deg); }
+figure#spinner img:nth-child(7){ transform: rotateY(-270deg); }
+figure#spinner img:nth-child(8){ transform: rotateY(-315deg); }
+figure#spinner a {
+}
+
+div#carousel ~ span { 
+  color: #fff; 
+  margin: 5%; 
+  display: inline-block; 
+  text-decoration: none; 
+  font-size: 2rem; 
+  transition: 0.6s color; 
+  position: relative; 
+  margin-top: -6rem; 
+  border-bottom: none; 
+  line-height: 0; }
+div#carousel ~ span:hover { color: #888; cursor: pointer; }
+
+
+/*
+    ===============================================================
+    bootstrap Carousel css
+    */
+div#myCarousel{
+    background: #3399cc;
+    padding: 40px;
+}
+
+div#myCarousel img { max-width:100%; }
+
+div#myCarousel a {
+	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease; 
+	}
+    a:hover {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+        filter: alpha(opacity=50); /* IE7 */
+        opacity: 0.6;
+        text-decoration: none;
+    }
+
+
+/* Container */
+div#myCarousel .container-fluid {
+    background: #FFFFFF;
+    margin: 40px auto 10px;
+    padding: 20px 40px 0;
+    max-width: 960px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Page Header */
+div#myCarousel .page-header {
+    background: #f9f9f9;
+    margin: -30px -40px 40px;
+    padding: 20px 40px;
+    border-top: 4px solid #ccc;
+    color: #999;
+    text-transform: uppercase;
+    }
+    .page-header h3 {
+        line-height: 0.88rem;
+        color: #000;
+        }
+
+
+
+/* Thumbnail Box */
+div#myCarousel .caption h4 {
+    font-size: 1rem;
+    color: #444;
+    }
+    .caption p {
+        font-size: 0.75rem;
+        color: #999;
+        }
+        .btn.btn-mini {
+            font-size: 0.63rem;
+            }
+
+
+/* Carousel Control */
+div#myCarousel .control-box {
+    text-align: right;
+    width: 100%;
+    }
+    .carousel-control{
+        background: #666;
+        border: 0px;
+        border-radius: 0px;
+        display: inline-block;
+        font-size: 34px;
+        font-weight: 200;
+        line-height: 18px;
+        opacity: 0.5;
+        padding: 4px 10px 0px;
+        position: static;
+        height: 30px;
+        width: 15px;
+        }
+
+
+/* Footer */
+div#myCarousel .footer {
+    margin: auto;
+    width: 100%;
+    max-width: 960px;
+    display: block;
+    font-size: 0.69rem;
+    }
+    .footer, .footer a {
+        color: #c9e4f7;
+        }
+        p.right  { 
+            float: right; 
+            }
+
+
+/* Mobile Only */
+@media (max-width: 767px) {
+    div#myCarousel .page-header, .control-box {
+    text-align: center;
+    } 
+}
+@media (max-width: 479px) {
+    div#myCarousel .caption {
+    word-break: break-all;
+    }
+}
+
+
+/* ADD-ON
+-------------------------------------------------- */
+div#myCarousel :after{content:"less than 320px";font-size:1rem;font-weight:bold;position:fixed;bottom:0;width:100%;text-align:center;background-color:hsla(1,60%,40%,0.7);color:#fff;height:20px;padding-top:0;margin-left:0;left:0}@media only screen and (min-width:320px){body:after{content:"320 to 480px";background-color:hsla(90,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:480px){body:after{content:"480 to 768px";background-color:hsla(180,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:768px){body:after{content:"768 to 980px";background-color:hsla(270,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:980px){body:after{content:"980 to 1024px";background-color:hsla(300,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:1024px){body:after{content:"1024 and up";background-color:hsla(360,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}
+
+div#myCarousel ::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+div#myCarousel ::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+
+div#myCarousel a, a:focus, a:active, a:hover, object, embed { outline: none; }
+div#myCarousel :-moz-any-link:focus { outline: none; }
+div#myCarousel input::-moz-focus-inner { border: 0; }

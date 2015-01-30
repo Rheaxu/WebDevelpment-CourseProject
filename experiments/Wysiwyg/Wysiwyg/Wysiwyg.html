@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>What you see is what you get</title>
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script src="../../javascript/jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="../../css/jquery-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/experimentcss.css" type="text/css"/>
+    <link rel="stylesheet" href="css/app.css" type="text/css"/>
+</head>
+<body>
+    <h1>Experiment: What you see is What you get</h1>
+    <p>This experiment uses the jquery widgets to create a "What you see is what you get view"</p>
+    <hr />
+    <h2>Experiment Details:</h2>
+    <div>
+        <div class="toolbar">
+            <div class="centered-div form-inline">
+                <select class="form-control element-type">
+                    <option value="H1">Heading 1 (H1)</option>
+                    <option value="H2">Heading 2 (H2)</option>
+                    <option value="H3">Heading 3 (H3)</option>
+                    <option value="P">Paragraph (P)</option>
+                    <option value="DIV">Section (DIV)</option>
+                    <option value="IMG">Image (IMG)</option>
+                </select>
+                <button class="btn btn-success add-btn">Add</button>
+            </div>
+        </div>
+
+        <div id="loadDialog" title="Load Page Dialog">
+            <select id="list-of-saved-pages" class="form-control">
+                <option>No Pages</option>
+            </select>
+        </div>
+    </div>
+    
+    <br />
+    <p>Choose one option from the drop-down list, then an element will be appended to the page.
+        You can drag it, resize it, delete it and edit it.<br />
+        These elements are dynamically added by using jquery. 
+    </p>
+    <p>1. When you choose an element and click the "Add" button, the element will be appened.
+        <br />The script for the add button is
+    </p>
+    <pre class="snippet">
+function addBtnHandler()
+{
+    var elementType = $(".element-type").val();
+    console.log("Adding Element " + elementType);
+    var html = htmlTemplates[elementType];
+    var dom = $(html)
+        .css({ position: "absolute", top: 100, left: 100, width: 200, height: 100 })
+        .click(elementClickHandler);
+    $("body").append(dom);
+}
+    </pre>
+    <p>2. When you click the an element, ti will be selected and all other element will be
+        unselected
+    </p>
+    <pre class="snippet">
+function elementClickHandler() {
+    var element = $(this);      // Grab the element we click
+    unselectAllElements(element);
+    selectElement(element);
+}
+    </pre>
+    <p>The code for unselecting all element is:</p>
+    <pre class="snippet">
+function unselectAllElements(element) {
+    $(".selected").find(".delete-btn").remove();
+    $(".selected").find(".edit-btn").remove();
+    $(".selected")
+        .css("box-shadow", "0px 0px 0px #888888")
+        .draggable("destroy")
+        .resizable("destroy")
+        .removeClass("selected");
+}
+    </pre>
+    <p>The code for selecting all element is:</p>
+    <pre class="snippet">
+    function selectElement(element) {
+    if (element.hasClass("selected"))
+        return;
+    var deleteBtnHtml = "&lt;button class='delete-btn btn btn-danger'>X&lt;button>";
+    var $deleteBtn = $(deleteBtnHtml).click(deleteBtnHandler);
+    var editBtnHtml = "&lt;button class='edit-btn btn btn-alert'>...&lt;button>";
+    var $editBtn = $(editBtnHtml).click(editBtnHandler);
+    element
+        .addClass("selected")
+        .css("box-shadow", "0px 0px 5px #888888")
+        .draggable({ grid: [10, 10] })
+        .resizable({ grid: [10, 10] })
+        .append($deleteBtn)
+        .append($editBtn);
+}
+    </pre>
+    <p>3. To edit the element, click the edit button "..."</p>
+    <p>The code for edit is:</p>
+    <pre class="snippet">
+function editBtnHandler() {
+    var btn = $(this);
+    var parentElement = btn.parent();
+    console.log("Editing");
+    console.log(parentElement);
+    if (parentElement.hasClass("img")) {
+        var url = prompt("Provide Image URL");
+        console.log("The url is:" + url);
+        if (url != null && url != "") {
+            parentElement.find("img").attr("src", url);
+        }            
+    }
+}
+    </pre>
+    <p>4. To delete the elemnt, click the delete button "X"<br />
+        You should remove the parent element of the button rather than the delete button.
+    </p>
+    <pre class="snippet">
+function deleteBtnHandler() {
+    var btn = $(this);
+    var parentElement = btn.parent();
+    parentElement.remove();
+}
+    </pre>
+    <div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Wysiwyg/Wysiwyg/Wysiwyg.html" target="_blank">HTML</a>
+        <br />
+        <a href="js/app.js" target="_blank">Javascriopt for Wysiwyg</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="https://www.youtube.com/watch?v=qk03ZcjP5Gc" target="_blank">Professor Annunziato's vedio</a>
+    </div>
+</body>
+</html>

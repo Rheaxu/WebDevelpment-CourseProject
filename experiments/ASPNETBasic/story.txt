@@ -1,0 +1,3 @@
+﻿../ASPNETBasic/WebForms/index.html			ASP.NET basic: ASP.NET Web Control
+../ASPNETBasic/simple_login/index.html		ASP.NET basic: login
+../ASPNETBasic/register/index.html		ASP.NET basic: register

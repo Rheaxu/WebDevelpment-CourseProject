@@ -1,0 +1,22 @@
+﻿experimentfiles/HTML/index.html					HTML Experiment
+experimentfiles/Angular/index.html				Angular Experiment
+experimentfiles/BoxModel/index.html				Box Model Experiment
+experimentfiles/WeatherClient/index.html		Weather Client Experiment
+experimentfiles/BookLibrary/index.html			Book Library Experiment
+experimentfiles/IterArrayAngular/index.html		Array Iteration Experiment
+experimentfiles/Mediaquery/index.html			Media query Experiment
+experimentfiles/ImageGallery/index.html			Image Gallery Experiment
+experimentfiles/BookRecommend/index.html		Book Recommendation Experiment
+experimentfiles/FirstTryOpenS/index.html		First Try on OpenShift
+experimentfiles/ExpressResponse/index.html		Use Express Response
+experimentfiles/Jquery/1-helloworld/index.html  Start to use JQuery
+experimentfiles/Jquery/2-templates/index.html   Jquery templates
+experimentfiles/Jquery/3-draggable/index.html   Jquery draggable
+experimentfiles/WebAudioAPI/audio.html			Web Audio API
+experimentfiles/VexflowAPI/sheetmusic.html		VexFlow API for create sheet music
+experimentfiles/Widgets/Wysiwyg/Wysiwyg.html	What you see is what you get
+experimentfiles/Widgets/Save_Wysiwyg/Save_wysiwyg.html	Save What you see is what you get
+experimentfiles/Widgets/Load_Wysiwyg/Load_wysiwyg.html	Load What you see is what you get
+experimentfiles/WebService/AsmxWebserviceClient.html	WebService and Ajax
+experiments.txt								The story file for this story
+

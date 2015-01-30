@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Book Library</title>
+    <script src="../../../javascript/angular.min.js"></script>
+    <link href="../../../css/mystyle2.css" rel="stylesheet"/>
+</head>
+<body ng-app>
+    <div class="container" ng-controller="BookLibraryController">
+        <h1>Book Library</h1>
+        <hr />
+        <p>This experiment is about how to use angular data model to delete,update and add information
+            in tables on the web page.<br />
+            When you type information for a new book in the input boxes and click "Add" button, the 
+            new book will be added to the table. This is implemeted by using push.<br />
+            When you click the "Delete" button after any book, the book will be removed from the
+            table.<br />
+            When you click the "Select" button after a book, the information of the book will be
+            displayed in the input boxes and now you can modify the information of the book.
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td><input class="form-control" ng-model="newBook.isbn" placeholder="ISBN"/></td>
+                    <td><input class="form-control" ng-model="newBook.title" placeholder="Title"/></td>
+                    <td><input class="form-control" ng-model="newBook.author" placeholder="Author"/></td>
+                    <td>
+                        <button ng-click="add()" class="btn btn-success">Add</button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="delete(book)">Delete</button>
+                        <button class="btn btn-warning" ng-click="select(book)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/AngularJS/Booklibrary/index.html" target="_blank">HTML</a>
+        <h2>Reference</h2>
+        <a href="http://stackoverflow.com/questions/15475601/ng-repeat-list-in-angular-is-not-updated-when-a-model-element-is-spliced-from-th">Angular push and update array</a>
+    </div>
+    
+    <script>
+        function BookLibraryController($scope) {
+            var book1 = {
+                isbn: "12345678",
+                title: "Oliver Twist",
+                author: "Charles Dickens",
+            };
+            var book2 = {
+                isbn: "2342398798",
+                title: "The book thief",
+                author: "Markus Zusak",
+            }
+            var book3 = {
+                isbn: "2347293879",
+                title: "The Grapes of Wrath",
+                author: "John Steinbeck",
+            }
+            var books = [book1, book2, book3];
+            $scope.books = books;
+
+            $scope.select = function (book) {
+                console.log(book);
+                $scope.newBook = book;
+            }
+
+            $scope.delete = function (book) {
+                var index = $scope.books.indexOf(book);
+                $scope.books.splice(index, 1);
+            }
+            $scope.add = function () {
+                console.log($scope.newBook);
+                var book = {
+                    isbn: $scope.newBook.isbn,
+                    title: $scope.newBook.title,
+                    author: $scope.newBook.author
+                };
+                $scope.books.push(book)
+            }
+        }
+    </script>
+
+</body>
+</html>

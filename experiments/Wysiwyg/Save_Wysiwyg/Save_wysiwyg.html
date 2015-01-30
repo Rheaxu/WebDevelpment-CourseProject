@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Save What you see is what you get</title>
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script src="../../javascript/jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/jquery-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/experimentcss.css" type="text/css"/>
+</head>
+<body>
+    <h1>Experiment: Save What you see is What you get</h1>
+    <p>This experiment Save "What you see is what you get" to the local storage</p>
+    <hr />
+    <h2>Experiment Details:</h2>
+    <div>
+        <div class="toolbar">
+            <div class="centered-div form-inline">
+                <select class="form-control element-type">
+                    <option value="H1">Heading 1 (H1)</option>
+                    <option value="H2">Heading 2 (H2)</option>
+                    <option value="H3">Heading 3 (H3)</option>
+                    <option value="P">Paragraph (P)</option>
+                    <option value="DIV">Section (DIV)</option>
+                    <option value="IMG">Image (IMG)</option>
+                    <option value="YOU_TUBE">Youtube</option>
+                </select>
+                <button class="btn btn-success add-btn">Add</button>
+                <button class="btn btn-primary save-btn">Save</button>
+            </div>
+        </div>
+
+        <div id="loadDialog" title="Load Page Dialog">
+            <select id="list-of-saved-pages" class="form-control">
+                <option>No Pages</option>
+            </select>
+        </div>
+    </div>
+    
+    <p>The vedio iframe is added in this experiment</p>
+    <p>1. Add whatever elements you want to add to the page, then click on the
+        "Save" button. Then the jquery will generate a list of all "ide" elements
+        <br />
+    </p>
+    <pre class="snippet">
+elements.each(function (index, element))
+    </pre>
+    <p>The element got from elements.each is a string, we need to convert it to jquery object.</p>
+    <pre class="snippet">
+element = $(element);
+    </pre>
+    <p>2. Then we generate an object for each of the element
+    </p>
+    <pre class="snippet">
+var html = element.find(".content").html();
+var position = element.position();
+var top = position.top;
+var left = position.left;
+var width = element.outerWidth();
+var height = element.outerHeight();
+var type = null;
+obj = {
+    html: html,
+    top: top,
+    left: left,
+    width:width,
+    height:height
+}
+if (element.hasClass("youTube")) {
+    obj.type = "YOU_TUBE";
+    obj.src = element.find(".content").attr("src");
+} else if (element.find(".content").hasClass("h1")) {
+    obj.type = "H1";
+} else if (element.find(".content").hasClass("h2")) {
+    obj.type = "H2";
+} else if (element.find(".content").hasClass("h3")) {
+    obj.type = "H3";
+} else if (element.find(".content").hasClass("p")) {
+    obj.type = "P";
+} else if (element.find(".content").hasClass("div")) {
+    obj.type = "DIV";
+} else if (element.find(".content").hasClass("img")) {
+    obj.type = "IMG";
+}
+    </pre>
+    <p>Then we push each object to the objectContent array</p>
+    <pre class="snippet">
+objContent.push(obj);
+    </pre>
+    <p>3. Generate json object string</p>
+    <pre class="snippet">
+var objStr = JSON.stringify(objContent);
+    </pre>
+    <p>4. Put it into localStorage</p>
+    <pre class="snippet">
+localStorage.setItem("ide",objStr);
+    </pre>
+    <p>Then on the console, when you type "localStorage", you can see something like this</p>
+    <pre class="snippet">
+Storage {ide: "[{"html":"Heading 1","top":100,"left":100,"width":…","top":100,"left":100,"width":200,"height":100}]", length: 1}ide: "[{"html":"Heading 1","top":100,"left":100,"width":200,"height":100},
+       {"html":"Heading 2","top":100,"left":100,"width":200,"height":100}]"
+    </pre>
+    <div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Wysisyg/Save_Wysiwyg/Save_wysiwyg.html" target="_blank">HTML</a>
+        <br />
+        <a href="js/app.js" target="_blank">Javascriopt for Save Wysiwyg</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="https://www.youtube.com/watch?v=TMzV1GG6Yz4&list=UUCgliN1n-OaiYJbZV8gypNA" target="_blank">Professor Annunziato's vedio</a>
+    </div>
+</body>
+</html>

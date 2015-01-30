@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: HTML</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <style type="text/css">
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        font-family:'Comic Sans MS';
+        text-align:center;
+        list-style:none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    li.navigation
+    {
+        display:inline-flexbox;
+        padding: 2px 2px 2px 2px;
+        border:5px solid green;
+        border-radius:15px;
+        background-color:lightyellow;
+        margin:5px 5px 5px 5px
+    }
+    li.important_nav 
+    {
+        margin: 120px 5px 120px 5px;
+    }
+    li.decription 
+    {
+        text-align:center;
+        list-style:none;
+        border-radius:300px;
+        background-color:aqua;
+        margin:5px 5px 5px 5px;
+        border:3px groove blue;
+        padding:20px 20px 20px 20px;
+        content:circle;
+    }
+
+    img.relative
+    {
+        position:relative;
+    }
+
+    a
+    {
+        color: #08f;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #f00;
+    }
+
+    p.info 
+    {   
+        font-size:medium;
+        text-align:center;
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+
+</style>
+
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: First HTML</h1>
+        
+        <hr />
+        
+        <h2>I. What is HTML</h2>
+        <h3>HTML is a markup language for describing web documents (web pages).</h3>
+        <ul>    
+            <li>HTML stands for Hyper Text Markup Language</li>
+            <li>A markup language is a set of markup tags</li>
+            <li>HTML documents are described by HTML tags</li>
+            <li>Each HTML tag describes different document contentThis experiment is about HTML</li>
+        </ul>
+        <h3>HTML Example</h3>
+            <pre>
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                    &lt;body&gt;
+                        &lt;h1>First Heading&lt;/h1&gt;
+                        &lt;h2>Second Heading&lt;/h2&gt;
+                        &lt;p>Paragraphy/p&gt;
+                        &lt;a href="www.w3schools.com"&gt;Markup snippet for a link to &lt;/a&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </pre>
+        <h4>Explain for Example</h4>
+        <ul>
+            <li>The DOCTYPE declaration defines the document type</li>
+            <li>The text between &lt;html> and &lt;/html> describes the web document</li>
+            <li>The text between &lt;body> and &lt;/body> describes the visible page content</li>
+            <li>The text between &lt;h1> and &lt;/h1> describes a heading</li>
+            <li>The text between &lt;p> and &lt;/p> describes paragraph</li>
+        </ul>
+        <h5>Using the description, a web browser can display a document with a heading and a paragraph.</h5>
+        <hr />
+        <h2>II. HTML Tags</h2>
+        <p>Raw text elements are constructed with 1) a start tag &lt;tag>, 2) some amount of text content, 3) and end tag &lt;/tag></p>
+        <ul>
+            <li>
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">title</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">title</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>Define a document title. For example, the title of this page is "Experiment: HTML".</span>
+                <br />
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">title</span><!--
+                    --><span class="blue">></span><!--
+                    -->Experiment: HTML<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">title</span><!--
+                    --><span class="blue">></span>
+                </span>
+            </li>
+            <li><span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">p</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">p</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>Creates a paragraph of some text. For example, the following code</span>
+                <br />
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">p</span><!--
+                    --><span class="blue">></span><!--
+                    -->Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">p</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br /> 
+                <span>will generate the following content</span>
+                <br />
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </li>
+            <li>
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">h1</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">h1</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">h2</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">h2</span><!--
+                    --><span class="blue">></span>
+                </span>
+                    ...
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">h6</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">h6</span><!--
+                    --><span class="blue">></span>                
+                </span>
+                <br />
+                <span>Section headings at different levels. &lt;h1> delimits the highest-level heading,
+                    &lt;h2> the next level down (sub-section), &lt;h3> for a level below that,
+                    and so on to &lt;h6>. They are sometimes referred to collectively as &lt;hn> tags,
+                    n meaning any of the available heading levels.
+                </span>
+                <br />
+                <h1>This is h1</h1>
+                <h2>This is h2</h2>
+                <h3>This is h3</h3>
+                <h4>This is h4</h4>
+                <h5>This is h5</h5>
+                <h6>This is h6</h6>
+            </li>
+            <li>
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span>
+                </span>
+                ,
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span>
+                </span>
+                and
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>&lt;ol> is an ordered (enumerated) list. &lt;ul> is an unordered (bulleted list).
+                    &lt;li> is a list item in ordered or unordered list
+                </span>
+                <br />
+                <span>This following code is for ordered list:</span>
+                <br />
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">ol</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->Decide how much rice you will need<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->Gather your supplies<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->Cooking the rice<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&lt;/</span><!--
+                    --><span class="brown">ol</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>it will generate:</span>
+                <ol>
+                    <li>Decide how much rice you will need</li>
+                    <li>Gather your supplies</li>
+                    <li>Cooking the rice</li>
+                </ol>
+                <span>This following code is for unordered list:</span>
+                <br />
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->What is HTML<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->What is CSS<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span><!--
+                    -->What is ASP.NET<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">li</span><!--
+                    --><span class="blue">></span>
+                    <br />
+                    <span class="blue">&lt;/</span><!--
+                    --><span class="brown">ul</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>it will generate:</span>
+                <ul>
+                    <li>What is HTML</li>
+                    <li>What is CSS</li>
+                    <li>What is ASP.NET</li>
+                </ul>
+            </li>
+            <li>
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">a</span><!--
+                    --><span class="blue">></span><!--
+                    -->...<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">a</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>An anchor element is called an anchor because web designers can use
+                    it to anchor a URL to some text on a web page. When users view the web
+                    page in a browser, they can click the text to activate the link and
+                    visit the page whose URL is in the link
+                </span>
+                <br />
+                <span>The following code is an example of anchor tag:</span>
+                <br />
+                <span class="tags">
+                    <span class="blue">&lt;</span><!--
+                    --><span class="brown">a href="http://net4.ccs.neu.edu/home/rheaxu/"</span><!--
+                    --><span class="blue">></span><!--
+                    -->an link to my home page<!--
+                    --><span class="blue">&lt;/</span><!--
+                    --><span class="brown">a</span><!--
+                    --><span class="blue">></span>
+                </span>
+                <br />
+                <span>It will generate the following link to the home page of my website:</span>
+                <br />
+                <a href="http://net4.ccs.neu.edu/home/rheaxu/">an link to my home page</a>
+            </li>
+        </ul>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/HTML/html_tags/index.html" target="_blank">HTML</a>
+        <h3>Reference</h3>
+        <a href="http://www.w3schools.com/html/html_intro.asp">HTML Introduction from w3schools</a>
+        <br />  
+        <a href="http://en.wikipedia.org/wiki/HTML_element">wikipedia</a>
+    </div>
+
+
+    <!--iframe id="storyFrame" width="100%" height="100px"
+        frameborder="0" marginwidth="0px" marginheight="0px" ></!--iframe-->
+</body>
+</html>

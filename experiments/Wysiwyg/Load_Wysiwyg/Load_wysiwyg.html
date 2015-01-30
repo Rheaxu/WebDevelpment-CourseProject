@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Load What you see is what you get</title>
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script src="../../jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/jquery-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/experimentcss.css" type="text/css"/>
+</head>
+<body>
+    <h1>Experiment: Load What you see is What you get</h1>
+    <p>This experiment Load "What you see is what you get" from the local storage</p>
+    <hr />
+    <h2>Experiment Details:</h2>
+    <div>  
+        <div class="toolbar">
+            <div class="centered-div form-inline">
+                <select class="form-control element-type">
+                    <option value="H1">Heading 1 (H1)</option>
+                    <option value="H2">Heading 2 (H2)</option>
+                    <option value="H3">Heading 3 (H3)</option>
+                    <option value="P">Paragraph (P)</option>
+                    <option value="DIV">Section (DIV)</option>
+                    <option value="IMG">Image (IMG)</option>
+                    <option value="YOU_TUBE">Youtube(Frame)</option>
+                </select>
+                <button class="btn btn-success add-btn">Add</button>
+                <button class="btn btn-primary save-btn">Save</button>
+                <button class="btn btn-primary load-btn">Load</button>
+                <button class="btn btn-primary clear-btn">Clear</button>
+            </div>
+        </div>
+
+        <div id="loadPageDialog" title="Select Page to load">
+            <select id="pageListSelector" class="form-control">
+                <option>No Pages</option>
+            </select>
+        </div>
+    </div>
+    
+    <p>Step1: As what is shown in experiment Save What you see is What you get, choose whatever
+        elements you like to add then click the save button. <br />
+        Now all elements are saved in the local storage
+    </p>
+    <br />
+    <p>Step2: Either restart the broser or refresh the page, then click load button, a
+        prompt box will give a the list of all the save pages.
+    </p>
+    <p>The code of the load page dialog is:</p>
+    <pre class="snippet">
+$("#loadPageDialog").dialog({
+    autoOpen: false,
+    modal: true,
+    resizable: false,
+    buttons: {
+        "Load": function () {
+            $("#loadPageDialog").dialog("close");
+            loadPage();
+        },
+        "Cancel": function () { $("#loadPageDialog").dialog("close"); }
+    },
+    open: populatePageList
+});
+    </pre>
+    <p>When the dialog is open, it will populate all pages.</p>
+    <pre>
+function populatePageList() {
+    var objStr = localStorage.getItem("ide");
+    console.log(objStr);
+    if (objStr == null)
+        return;
+    var ide = JSON.parse(objStr);
+    var pages = ide.pages;
+    var pageListSelector = $("#pageListSelector");
+    pageListSelector.empty();
+    for (var p in pages) {
+        console.log(p)
+        var option = $("<option>").append(p);
+        pageListSelector.append(option);
+    }
+}
+    </pre>
+    <br />
+    <p>Step3: After clicking the load button, the page you choose will be rendered</p>
+    <p>The code for rendering page is:</p>
+    <pre class="snippet">
+function renderObjectArray(contentArray) {
+    for (var c in contentArray) {
+        var obj = contentArray[c];
+        var elementType = obj.type;
+        var dom = addElementForType(elementType);
+        dom.css({
+            top: obj.top,
+            left: obj.left,
+            width: obj.width,
+            height: obj.height
+        });
+    }
+}    
+    </pre>
+
+    <div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Wysiwyg/Wysiwyg/Load_wysiwyg.html" target="_blank">HTML</a>
+        <br />
+        <a href="js/app.js" target="_blank">Javascriopt for Save Wysiwyg</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="https://www.youtube.com/watch?v=TMzV1GG6Yz4&list=UUCgliN1n-OaiYJbZV8gypNA" target="_blank">Professor Annunziato's vedio</a>
+    </div>
+</body>
+</html>

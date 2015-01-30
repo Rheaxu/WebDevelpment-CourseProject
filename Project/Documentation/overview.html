@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Overview Of My Final Project</h1>
+        <hr />
+        <h2>1. Website Name:</h2>
+        <p>Online Sheet Music Collection and Photo Gallery</p>
+        <h2>2. Main Functions</h2>
+        <ul>
+            <li><b>Search</b>: Any users can search, preview sheet musics and photos.</li>
+            <li><b>Preview</b>: Any users can preview a work</li>
+            <li><b>Add works</b>: Members can add sheet musics and photos to their own collections and galleries.</li>
+            <li><b>Like/Unlike</b>: Members can like/unlike other members' sheet musics and photos</li>
+            <li><b>Comment</b>: Members can comment on any sheet musics and photos.</li>
+            <li><b>Follow/Unfollow</b>: Members can follow/unfollow any members</li>
+            <li><b>Profile</b>: Each member has a profile. It lists all information of the member.</li>
+            <li><b>See All Followers</b>: Members can see all followers of a member</li>
+            <li><b>See All Followings</b>: Members can see all followings of a member</li>
+            <li><b>See All Likes</b>: Members can see all works a member likes</li>
+            <li><b>See All Likers</b>: Members can see all likers of a work</li>
+            <li><b>See All Collections</b>: Members can see all collections of any members</li>
+        </ul>
+        <h2>3. Platform and Database</h2>
+        <p>The project is built up with SQL Server and C# ASP.NET</p>
+        <h2>4. Pages List</h2>
+        <p>The website contains 8 pages that can be accessed by both guests and members and 7 pages that can
+        be accessed only by members.</p>
+        <p>Public Pages:</p>
+        <ul>
+            <li><a href="homepage.html" target="_blank">Home Page</a></li>
+            <li><a href="login.html" target="_blank">Login Page</a></li>
+            <li><a href="login.html" target="_blank">Register Page</a></li>
+            <li><a href="search.html" target="_blank">Search Page</a></li>
+            <li><a href="allmemberswork.html" target="_blank">All Members' Sheet Music Collection Page</a></li>
+            <li><a href="allmemberswork.html" target="_blank">All Members' Image Gallery Page</a></li>
+            <li><a href="preview.html" target="_blank">Sheet Music Preview page</a></li>
+            <li><a href="preview.html" target="_blank">Image Preview Page</a></li>
+        </ul>
+        <p>Member Pages:</p>
+        <ul>
+            <li><a href="profile.html" target="_blank">Personal Profile Page</a></li>
+            <li><a href="mysmcollection.html" target="_blank">My Sheet Music Collection Page</a></li>
+            <li><a href="myimggallery.html" target="_blank">My Photo Gallery Page</a></li>
+            <li><a href="smdetail.html" target="_blank">Sheet Music Detail Page</a></li>
+            <li><a href="imgdetail.html" target="_blank">Photo Detail Page</a></li>
+            <li><a href="post.html" target="_blank">Post Sheet Music Page</a></li>
+            <li><a href="post.html" target="_blank">Post Photo Page</a></li>
+        </ul>
+        <h2>5. Recommended test cases</h2>
+        <p style="color:red">Notice: "liked sheet music" and "liked photo" in the profile page means the sheet musics/photos in this website the member has clicked "Like" button for. 
+        It doens't mean the sheet musics/photos the member has added to his/her collection/gallery. </p>
+        <p><b>I. Search and add sheet music to your Sheet Music Collection</b></p>
+        <p>Follow the same steps to search and add photo to you Photo Gallery</p>
+        <ol>
+            <li>Click the "login" label on the home page to login (There are three of them: one is in the navigation bar, 
+            one is at the top right side of the page and one the under the "welcome" banner)</li>
+            <li>Click the "Search" on the home page (There are two of them: one is in the navigation bar and one is in the 
+            3D "Sheet Music" book on the home page)</li>
+            <li>Type the music track name you want to search. For example: christmas</li>
+            <li>Click "Search Sheet Music"</li>
+            <li>A table will list all the search result</li>
+            <li>Choose the one you prefer, for example, "Christmas night"</li>
+            <li>Click the Orange "Preview" button on the right side, you will be navigated to the preview page 
+            of this sheet music.</li>
+            <li>Click the green play triangle play button at the top of the sheet music to listen to it.</li>
+            <li>Click the blue "Add to my Sheet Music Collection" button, you will be navigated to the "ADD SHEET 
+            MUSIC TO MY COLLECTION" page</li>
+            <li>The URL is already there. You need to type the Title and Description for it. The maximum character
+             number of the description is 200. There is a character number counter under the description text area.</li>
+            <li>If there are any mistakes in the information you typed, ther will be a notification with yellow background 
+            and red words showing up at the top of the board.</li>
+            <li>Click "Post" button, you will be navigated to the detail page of this work if you post succeed.</li>
+            <li>Click the blue "Like" button to like the sheet music you just added. Then the "Likes" count beside the "Like" 
+            button will now increase 1.</li>
+            <li>Now Click the orange "Unlike" button, the "Like" count beside the button will decrease 1.</li>
+        </ol>
+        <p><b>II. Add comment to a sheet music</b></p>
+        <p>Follow the same steps to add comment to a photo</p>
+        <ol>
+            <li>At the bottom of the sheet music detail page, there is a "Add Comment Here" text area.</li>
+            <li>Type in whatever you want to say, and click "Add Comment" button.</li>
+            <li>The page will automatically refresh and you will see your comment listed in the comments area.</li>
+        </ol>
+        <p><b>III. Explore your personal profile</b></p>
+        <ol>
+            <li>After you log in, click the "My Profile" option in the navigation bar or your username at the top right of the
+             page to go to your personal profile.</li>
+            <li>You can click the options listed on your profile to explore more.</li>
+            <li>Expand the "Sheet Music Collection"/"Photo Gallery" option, click the link to view all your sheet music collection / 
+            Photo collection.</li>
+            <li>Expand the "Followers"/"Followings" option, click any of the users to go to their profile.</li>
+            <li>Expand the "Liked Sheet Music"/ "Liked Photo" option, click any of the sheet musics/photos to view the detail of the
+             work.</li>
+        </ol>
+        <p><b>IV. See all the members of the website</b></p>
+        <ol>
+            <li>Click the "Sheet Music" or "Photo" option in the navigation bar.</li>
+            <li>You will be navigate a page shows all the sheet musics or photos of all the members.</li>
+            <li>At the bottom of the page, you can see "All our members".</li>
+            <li>Click any of there names to go to their personal profile.</li>
+        </ol>
+        <p><b>V. Follow a user</b></p>
+        <ol>
+            <li>On the personal profile page of the member you are viewing, click the blue "Follow" button to 
+            follow the member, then the follower count beside the button will increase 1.</li>
+            <li>After you followed the member, click the "orange" "Unfollow" button to unfollow the member. Then 
+            the follower count beside the button will decrease 1.</li>
+        </ol>
+        <p><b>VI. View all the sheet musics of our members and add the one you like to your own collection</b></p>
+        <p>Follow the same steps for photos. The only difference is that you will see a photo slide on the "All members' 
+        photo collection page", and click any of the photo will redirect you to the detail page of the photo.</p>
+        <ol>
+            <li>
+                Click the "Sheet Music" option in the navigation bar. You will be navigated to the "All our members' sheet 
+                music page".
+            </li>
+            <li>
+                Choose the one you want to view, click the blue "detail" button to go to the detail page of this shee music.
+            </li>
+            <li>Or click the preview button to go to the preview page of this sheet music.</li>
+        </ol>
+        <p><b>VII. Explore the website as an anonymous user</b></p>
+        <ol>
+            <li>Click the "logout" button, you will be navigate to the login page.</li>
+            <li>Click the grey "Go back to home page" button, you will see the "My Profile" option 
+            in the navigation bar is dissappered.</li>
+            <li>Now if you are going to any member's page mentioned in the "Page List" section of
+             this documentation, you will be navigated to the login page first.</li>
+        </ol>
+        <h2>6. API</h2>
+        <p>There are 2 APIs used in this project</p>
+        <ul>
+            <li><a href="https://developers.google.com/image-search/v1/index" target="_blank"><b>Google Image Search API</b></a>: For searching Photos</li>
+            <li><a href="http://developers.musescore.com/" target="_blank"><b>MuseScore API</b></a>: For searching Sheet Musics</li>
+        </ul>
+        <h2>7. Resources and references:</h2>
+        <ul>
+            <li>
+                Images are mainly from <a href="https://developers.google.com/image-search/v1/index" target="_blank">Google Images Search Result</a>
+            </li>
+            <li>All sheet musics are from <a href="http://musescore.com/dashboard" target="_blank">MuseScore.com</a></li>
+            <li>Referred to <a href="http://net4.ccs.neu.edu/home/jiach25/project/home.aspx" target="_blank">Jiachi Liu</a>, 
+                <a href="http://net4.ccs.neu.edu/home/jkapadia/project/index4.html" target="_blank">Jagruti Kapadia</a> and
+                <a href="http://net4.ccs.neu.edu/home/venkat89/project/documentation/project-documentation.html" target="_blank">Venkatesh Balasubramanian</a>'s websites for design.</li>
+        </ul>
+        <h2>8. Thanks!</h2>
+        <p>While doing this project, Professor Jose Annunziato gave me a lot of help. For example: the Google Image Search API and Rasala's Proxy are all Professor's
+         suggestions. Many thanks to Professor Annunziato.</p>
+        <p>Besides, I also want you thank my TA Sandeep Ramamoorthy for the guidance of how to build a responsive and beautiful website.</p>
+    </div>
+</body>
+</html>

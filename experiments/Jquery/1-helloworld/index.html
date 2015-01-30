@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: Helo From JQuery</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button.hello").click(function () {
+                console.log("Append 'Hello from jquery after the button'")
+                $("span.jquery_hello").append("<a>Hello from jquery</a>")
+            });
+        });
+        
+    </script>
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: Hello from JQeury</h1>
+        <p>This is the first trial on JQuery<br />
+            jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML 
+            document traversal and manipulation, event handling, animation, and Ajax much simpler with 
+            an easy-to-use API that works across a multitude of browsers. With a combination of versatility 
+            and extensibility, jQuery has changed the way that millions of people write JavaScript.
+        </p>
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p>
+            <b>1.</b> Download JQuery from <a href="http://jquery.com/" target="_blank">its website</a>,
+            <br />
+            <b>2.</b> Click the button to get greeting from jquery,the &lt;span>will be
+            appended to the button
+            <br />
+            <span class="jquery_hello">
+                <button class="hello">HELLO</button>
+            </span>
+            <br />
+            The javascript for this is
+            <pre class="snippet">
+$(document).ready(function () {
+    $("button.hello").click(function () {
+        console.log("Append 'Hello from jquery after the button'")
+        $("span.jquery_hello").append("<a>Hello from jquery</a>")
+    });
+});
+            </pre>
+            <br />
+        </p>
+
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Jquery/1-helloworld/index.html" target="_blank">HTML</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="http://stackoverflow.com/questions/11130825/no-response-on-jquery-click" target="_blank">
+            StackOverflow about document ready problem
+        </a>
+        <br />
+        <a href="http://api.jquery.com" target="_blank">jquery api tutorial</a>
+        
+
+    </div>
+
+</body>
+</html>

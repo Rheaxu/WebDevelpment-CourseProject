@@ -1,0 +1,14 @@
+﻿div.vex {
+  color: #ccc;
+  position: relative;
+  font-family: 'Yanone Kaffeesatz', courier;
+  top: 0px;
+  right: 0px;
+  background: #eee;
+  padding: 5px 5px 8px 10px;
+  border-bottom: solid 3px #ccc;
+  border-left: solid 3px #ccc;
+}
+
+div.vex a { color: green; text-decoration: none; border: none; }
+div.vex a:hover { border-bottom: 5px solid #ccc; }

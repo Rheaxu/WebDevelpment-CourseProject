@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: HTML List</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <style type="text/css">
+    ul.master_navigation
+    {
+        font-size: 100%;
+        font-weight: bold;
+        font-family:'Comic Sans MS';
+        text-align:center;
+        list-style:none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+    li.navigation
+    {
+        display:inline-flexbox;
+        padding: 2px 2px 2px 2px;
+        border:5px solid green;
+        border-radius:15px;
+        background-color:lightyellow;
+        margin:5px 5px 5px 5px
+    }
+    li.important_nav 
+    {
+        margin: 120px 5px 120px 5px;
+    }
+    li.decription 
+    {
+        text-align:center;
+        list-style:none;
+        border-radius:300px;
+        background-color:aqua;
+        margin:5px 5px 5px 5px;
+        border:3px groove blue;
+        padding:20px 20px 20px 20px;
+        content:circle;
+    }
+
+    img.relative
+    {
+        position:relative;
+    }
+
+    a
+    {
+        color: #08f;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:visited
+    {
+        color: #88f;
+    }
+
+    a:hover
+    {
+        color: #f00;
+    }
+
+    p.info 
+    {   
+        font-size:medium;
+        text-align:center;
+    }
+
+    p
+    {
+        text-align: justify;
+    }
+
+</style>
+
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: HTML List</h1>
+        <p>
+            HTML list is frequently used. In this experiment, I explored
+            a little bit on this element.
+        </p>
+        <hr />
+
+        <p>There are three kinds of HTML lists.</p>
+        <p>
+            <b>1. Unordered HTML List</b><br />
+            An unordered list starts with the &lt;ul> tag. Each list item
+            starts with the &lt;li> tag. The list items will be marked with
+            bullets (small black circles).
+        </p>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+        <p>The code for the above list is:</p>
+        <pre class="snippet">
+&lt;ul>    
+    &lt;li>Coffee&lt;/li>
+    &lt;li>Tea&lt;/li>
+    &lt;li>Milk&lt;/li>
+&lt;/ul>
+        </pre>
+        <p>
+            <b>2. Ordered HTML List</b><br />
+            An unordered list starts with the &lt;ol> tag. Each list item
+            starts with the &lt;li> tag. The list items will be marked with
+            numbers.
+        </p>
+        <ol>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ol>
+        <p>The code for the above list is:</p>
+        <pre class="snippet">
+&lt;ol>    
+    &lt;li>Coffee&lt;/li>
+    &lt;li>Tea&lt;/li>
+    &lt;li>Milk&lt;/li>
+&lt;/ol>
+        </pre>
+        <b>3. HTML Descriptionn List</b><br />
+        A description list, is a list of terms, with a description of each term.
+        The &lt;dl> tag defines a description list.
+        <br />
+        The &lt;dt> tag defines the term (name), and the &lt;dd> tag defines 
+        the data (description). &lt;/p>
+        <dl>
+            <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+            <dt>Tea</dt>
+            <dd>- green hot drink</dd>
+            <dt>Milk</dt>
+            <dd>- while cold drink</dd>
+        </dl>
+                <p>The code for the above list is:</p>
+                <pre class="snippet">
+&lt;dl>
+    &lt;dt>Coffee&lt;/dt>
+    &lt;dd>- black hot drink&lt;/dd>
+    &lt;dt>Tea&lt;/dt>
+    &lt;dd>- green hot drink&lt;/dd>
+    &lt;dt>Mil&lt;/dt>
+    &lt;dd>- while cold drink&lt;/dd>
+&lt;/dl>
+        </pre>
+                <hr />
+                <h2>Source</h2>
+                <a href="../../../fileview/Default.aspx?~/experiments/HTML/html_list/index.html" target="_blank">HTML</a>
+                <h3>Reference</h3>
+                <a href="http://www.w3schools.com/html/html_lists.asp" target="_blank">List tutorial from w3schools</a>
+    </div>
+
+
+    <!--iframe id="storyFrame" width="100%" height="100px"
+        frameborder="0" marginwidth="0px" marginheight="0px" ></!--iframe-->
+</body>
+</html>

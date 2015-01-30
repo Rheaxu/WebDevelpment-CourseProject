@@ -1,0 +1,30 @@
+﻿span.tags 
+{
+    background-color:whitesmoke;
+    border:1px solid skyblue;
+    font-family:Consolas;
+    display:inline-block;
+}
+span.blue 
+{
+    color:blue;
+}
+span.brown 
+{
+    color:brown;
+}
+span.black 
+{
+    color:black;
+}
+div.snippet 
+{
+    background-color:whitesmoke;
+    border:1px solid skyblue;
+    font-family:Consolas;
+    display:inline-block;
+    font-size:x-small;
+    margin:0px 5px 0px 10px;
+    padding:0px 5px 0px 5px;
+}
+

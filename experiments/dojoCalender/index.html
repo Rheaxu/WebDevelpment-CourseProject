@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the CSS Experiment
+    
+    Copyright 2012,
+    Richard Rasala,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <title>Experiment: Dojo Calender</title>
+    
+    <script src="../../widget/Calendar.js"></script>
+    <style>     
+        @import "../../widget/Calendar/Calendar.css";
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Experiment: Dojo Calendar</h1>
+
+        <hr />
+        
+        <div data-dojo-type="dojox.widget.Calendar">
+            <div id="cal_1"></div>
+            <div id="cal_1_report"></div>
+        </div>
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/Experiments/experimentfiles/ImageGallery/index.html" target="_blank">HTML</a>
+        <h3>Reference</h3>
+        <a href="http://www.w3schools.com/ajax/ajax_intro.asp">W3school tutorial on Ajax</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">Image transition</a>
+        <a href="http://dustwell.com/div-span-inline-block.html">span vs. div</a>
+ 
+    </div>
+
+    <script>
+        var dojo = require("dojox.widget.Calendar");
+        dojo.ready(function(){
+        //create the dialog:
+            var cal_1 = new dojox.widget.Calendar({},dojo.byId("cal_1"));
+            dojo.connect(cal_1, "onValueSelected", function (date) {
+                dojo.byId("cal_1_report").innerHTML = date;
+            });
+        });
+    </script>
+</body>
+</html>

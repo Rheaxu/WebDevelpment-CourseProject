@@ -1,0 +1,18 @@
+﻿../../story/whatisnext.htm?../Project/Documentation/whatisnext.txt	What is Next
+../Documentation/overview.html	Project Overview
+../Documentation/database.html	Database Overview
+../Documentation/header.html	Header of the website
+../Documentation/homepage.html	Home Page (public page)
+../Documentation/login.html	Login Page (public page)
+../Documentation/register.html	Register Page (public page)
+../Documentation/search.html	Search (public page)
+../Documentation/allmemberswork.html		All Members' Sheet Musics and Photos (public page)
+../Documentation/preview.html	Preview Sheet Music And Photo (public page)
+../Documentation/profile.html	Personal profile (member page) 
+../Documentation/mysmcollection.html		My Sheet Music Collection (member page)
+../Documentation/myimggallery.html		My Photo Gallery (member page)
+../Documentation/smdetail.html		Sheet Music Detail (member page)
+../Documentation/imgdetail.html		Photo Detail (member page)
+../Documentation/post.html		Post Sheet Music and Photo (member page)
+
+

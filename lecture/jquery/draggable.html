@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Draggable</title>
+    <style>
+        h1 {
+            background-color:blue;
+        }
+            h1.green {
+                background-color:green; 
+            }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $(".drag-me").draggable({ axis: 'y', grid: [20, 20] });
+        });
+
+    </script>
+</head>
+<body>
+    <h1 class="drag-me">Hello World</h1>
+    <p class="drag-me">sldfksjldkfsjdlkfsjldksfjdlkj</p>
+</body>
+</html>

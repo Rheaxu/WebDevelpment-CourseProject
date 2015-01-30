@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Oct. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: JQuery Draggable</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <script src="../../javascript/jquery-ui.min.js"></script>
+    <script>
+        $(function init() {
+            $(".drag-me").draggable()
+            $(".drag-revert").draggable({ revert: true });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="pageHead">
+        <h1>Experiment: JQuery Draggable</h1>   
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+         
+        <div class="drag-area"> 
+            <b>1. Simple drag:</b> When you drag the following content, it will stop at wherever
+            your mouse is released.
+            <p class="drag-content drag-me">It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of 
+                using Lorem Ipsum is that it has a more-or-less normal distribution 
+                of letters, as opposed to using 'Content here, content here', making 
+                it look like readable English. 
+            </p>
+            <b>2. Revert to original palce:</b> When you drag the following content, it will go
+            back to the original place when your mouse is released.
+            <p class="drag-content drag-revert">It is a long established fact that a reader will be distracted by the 
+                readable content of a page when looking at its layout. The point of 
+                using Lorem Ipsum is that it has a more-or-less normal distribution 
+                of letters, as opposed to using 'Content here, content here', making 
+                it look like readable English. 
+            </p>
+        </div> 
+        <hr />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/Jquery/3-draggable/index.html" target="_blank">HTML</a>
+        <br />
+    </div>
+    <div>
+        <hr />
+        <h2>Reference</h2>
+        <a href="http://api.jqueryui.com/draggable/" target="_blank">
+            JQuery UI document
+        </a>
+        <br />
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sortable</title>
+    <style>
+        h1 {
+            background-color:blue;
+        }
+            h1.green {
+                background-color:green; 
+            }
+    </style>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script>
+        $
+        $(function () {
+            $(".list1,.list2").sortable({
+                axis: 'y',
+                connectWith : ".list2"
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Sortable</h1>
+    <ul class="list1">
+        <li>value1</li>
+        <li>value2</li>
+        <li>value3</li>
+        <li>value4</li>
+        <li>value5</li>
+        <li>value6</li>
+    </ul>
+
+    <ul class="list2">
+        <li>valueA</li>
+        <li>valueB</li>
+        <li>valueC</li>
+        <li>valueD</li>
+        <li>valueE</li>
+        <li>valueF</li>
+    </ul>
+</body>
+</html>

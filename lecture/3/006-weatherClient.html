@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Weather Client</title>
+    <script src ="../../javascript/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+</head>
+<body>
+    <div class="container" ng-controller="WeatherClientController">
+        <h1>Weather Client</h1>
+        <p>In this experiment, I used the world weather online API to get the weather data
+        and display them.
+        <br />
+        </p>
+        <hr />
+        <a id="url" href="http://api.worldweatheronline.com/free/v1/weather">
+                01826
+        </a>
+        <input ng-model="zip" class="form-control" placeholder="ZIP"/>
+        <input ng-model="numberOfDays" class="form-control" placeholder="Number of Days"/>
+        <button ng-click="getWeather() class=btn btn-success">Get Weather</button>
+
+        <div class="row" ng-repeat="w in weather">
+            <div class="col-sm-2">{{w.date}}</div>
+            <div class="col-sm-2">{{w.tempMinC}}-{{w.tempMaxC}}</div>
+            <div class="col-sm-3">{{w.winddirDegree}},{{w.windspeedKmph}} Kmph</div>
+            <div class="col-sm-3">
+                <span ng-repeat="d in w.weatherDesc">
+                    {{d.value}} &nbsp;
+                </span>
+            </div>
+            <div class="colmd-2">
+                <img ng-repeat="i in w.weatherIconUrl" src="{{i.value}}"/>
+            </div>
+        </div>
+
+        <table class="talbe">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Temperature</th>
+                    <th>Wind</th>
+                    <th>Description</th>
+                    <th>Icons</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="w in weather">
+                    <td>{{w.date}}</td>
+                    <td>{{w.tempMinC}}-{{w.tempMaxC}}</td>
+                    <td>{{w.winddirDegree}},{{w.windspeedKmph}} Kmph</td>
+                    <td>
+                        <span ng-repeat="d in w.weatherDesc">
+                            {{d.value}} &nbsp;
+                        </span>
+                    </td>
+                    <td>
+                        <img ng-repeat="i in w.weatherIconUrl" src="{{i.value}}"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var URL=""
+        function WeatherClientController($scope,$http) {        
+            //scope allows to manipulate som
+            $sope.zip = "02125";
+            $scope.numberOfDays = 3;
+            $scope.getWeather=function(){
+                var zip=$scope.zip;
+                var numberOfDays = $scope.numberOfDays;
+                console.log([zip,numberOfDays]);
+                var url = URL.replace("ZIP",zip);
+                url = url.replace("DAYS",numberOfDays);
+                //console.log(zip);
+
+                $http.get(url).success(function(response){  //render/update/handleResponse
+                    console.log(response);
+                    $scope.weather = response.data.weather;
+                });
+                $http.get(url).success(handleResponse);
+            }
+        }
+        function handleResponse(response){
+            console.log(response);
+
+            $http.get(url).success(fun(handleResponse));
+        }
+    </script>
+</body>
+</html>

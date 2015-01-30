@@ -1,0 +1,92 @@
+﻿@media screen
+{
+    .form span
+    {
+        display: block;
+        color: #777;
+        font-size: 13px;
+    }
+
+    .form
+    {
+        margin: 1em auto;
+        padding: 1em;
+        box-shadow: 1px 1px 7px #333;
+        font-family: georgia, sans-serif;
+        border-radius: 5px;
+        background-color:#F2F1F0;
+    }
+
+    .form .descArea
+    {
+        max-width: 90%;
+        width:90%;
+    }
+
+    .form-title
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form input[type=text]
+    {
+        border-radius: 5px;
+        height: 1.5em;
+        font-weight: bold;
+        max-width: 90%;
+        width: 90%;
+    }
+    
+    .form select
+    {
+        width:90%;
+        max-width:90%;
+        font-size:1.2em;
+        margin: .3em 0;
+    }
+
+    .border-bottom
+    {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #777;
+    }
+
+    .error, .form .error span
+    {
+        color: Red;
+        background-color: #FFF9AA;
+    }
+
+    .error div span, .form .error div span
+    {
+        color: Red;
+        font-size: 14px;
+    }
+   
+}
+
+.counterLabel {
+    margin-right:0px;
+    width:auto;
+    font-size:13px;
+    border:none;
+    background-color:#F2F1F0;
+}
+
+@media screen and (min-width: 920px)
+{
+    .form
+    {
+        width: 70%;
+    }
+
+}
+
+@media screen and (max-width: 919px)
+{
+    .form
+    {
+        width: 90%;
+    }
+}

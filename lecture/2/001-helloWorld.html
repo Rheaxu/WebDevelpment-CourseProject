@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Hello World</title> <!--Angular is used for the client side-->
+    <script src="../../javascript/angular.min.js"></script>
+</head>
+<body ng-app><!--the angular application-->
+    <h1>Angular Hello World</h1>
+
+    <div ng-controller="HelloWorldController">
+        <h2>Msg from hello world controller</h2> <!--The controller looks for the function with the same name-->
+        <!--The div is the scope for the view-->
+        {{message}}<!--A template. A space holder where we can put data. The scope of the controller can modify-->
+    </div>
+
+    <script>
+        function HelloWorldController($scope) {
+            $scope.message = "Hello World";
+            console.log("Hello World")
+        }
+    </script>
+
+    <h2>Documentation</h2>
+    <p>
+        <h3>Download AngularJS from</h3>
+        <a href="https://www.angularjs.org">Angular JS</a>
+        <pre>&lt;script src="../../javascript/angular.min.js"&gt;</pre>
+    </p>
+
+    <p>
+        <h3>Install</h3>
+    </p>
+
+        <h3>Templates</h3>
+        <p>Declare Templates using curly brackets</p>
+        <h3>Source</h3>   <!--It's important to make a source list of all your source code!!!!!!-->
+    <!--All required block: Story, file view, snippete, blog-->
+        <a href="http://localhost:2059/RuiyuXU_Web/lecture/2/001-helloWorld.html"></a>
+</body>
+</html>

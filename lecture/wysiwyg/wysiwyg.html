@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+    <link href="css/app.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../ccs/jquery-ui.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="toolbar">
+        <div class="centered-div form-inline">
+            <select class="form-control element-type">
+                <option value="H1">Heading 1</option>
+                <option value="H2">Heading 2</option>
+                <option value="H3">Heading 3</option>
+                <option value="P">Paragraph</option>
+                <option value="DIV">Section DIV</option>
+                <option value="IMG">Image IMG</option>
+                <option value="YOU_TUBE">YouTube (FRAME)</option>
+            </select>
+            <button class="btn btn-success add-btn">ADD</button>
+            <button class="btn btn-primary save-btn">SAVE</button>
+            <button class="btn btn-primary load-btn">Load</button>
+            <button class="btn btn-primary clear-btn">Clear</button>
+        </div>
+    </div>
+
+    <div id="loadPageDialog" title="Select Page to Load">
+        <select class="form-control" id="pageListSelector">
+            <option>No Pages</option>
+        </select>
+    </div>
+</body>
+</html>

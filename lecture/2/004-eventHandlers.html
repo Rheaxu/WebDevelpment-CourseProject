@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Event Handlers</title>
+    <!--script src="../../../javascript/jquery-1.1..."-->
+    <script src="../../javascript/angular.min.js"></!--script>
+    <link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.css">
+</head>
+<body ng-app>
+   
+    <div class="container" ng-controller="DataModelController">
+        <h1>Event Handlers</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Salary</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th><input ng-model="newEmployee.firstName" class =""/></th>
+                    <th><input ng-model="newEmployee.firstName" class =""/></th>
+                    <th><input ng-model="newEmployee.firstName" class =""/></th>
+                    <th>
+                        <button ng-click="add()" class="btn btn-success">Add</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.firstName}}</td>
+                    <td>{{employee.lastName}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>
+                        <button ng-click="delete(employee)" class="btn btn-danger">Delete</button>
+                        <button class="btn btn-update">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        function DataModelController($scope) {
+            var alice = {
+                firstName: "Alice",
+                lastName: "Wonderland",
+                salary: 123321
+            };
+
+            var bob = {
+                firstName: "Bob",
+                lastName: "Marley",
+                salary: 234234
+            };
+
+            var charlie = {
+                firstName: "Charlie",
+                lastName: "Garcia",
+                salary: 543253
+            }
+
+            var employees = [alice, bob, charlie]
+            
+            $scope.employees = employees;
+            $scope.delete = function (employee) {
+                console.log(employee);
+            }
+            $scope.add = function () {
+                console.log($scope.newEmployee);
+                $scope.employees.push($scope.newEmployee)
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

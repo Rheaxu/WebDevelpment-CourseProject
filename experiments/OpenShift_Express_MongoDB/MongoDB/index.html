@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: MongoDB</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <style>
+        pre.OS_info {
+            word-wrap:break-word;
+            background-color: lightgray;
+            font-size:medium;
+            border:2px, solid, black;
+        }
+        img.url {
+            width:100%;
+        }
+        
+    </style>
+</head>
+
+<body ng-app="">
+    <div id="pageHead" class="relative">
+        <h1>Experiment: MongoDB</h1>
+        <p>
+            MongoDB is an open-source document database that provides high performance, high 
+            availability, and automatic scaling. It is a non-relational data base.
+            A record in MongoDB is a document, which is a 
+            data structure composed of field and value pairs. MongoDB documents are similar to 
+            JSON objects. The values of fields may include other documents, arrays, and arrays 
+            of documents.
+            <br />
+            The advantages of using documents are:<br />
+            Documents (i.e. objects) correspond to native data types in many programming languages.
+            <br />
+            Embedded documents and arrays reduce need for expensive joins.<br />
+            Dynamic schema supports fluent polymorphism.
+            <b>
+                For more inforamation about MongoDB, click 
+                <a href="http://docs.mongodb.org/manual/core/introduction/" target="_blank">here</a>
+            </b>
+        </p>
+        <hr />
+        <p>
+            <b>1. Install MongoDB on local machine</b><br />
+            After downloading MongoDB from 
+            <a href="http://www.mongodb.org/?_ga=1.224186843.1536474593.1409773989" target="_blank">website</a>,
+            install it and go to C:\Program Files\MongoDB 2.6 Standard\bin, the mongod.exe is 
+            the server and mongo.exe is the client.<br />
+            Type "mongod" in any directory from the shell to start mongoDB server and type 
+            "mongo" in any directory from the shell to start mongoDB client.
+            <br />
+            <b>2. Add MongoDB on OpenShift</b><br />
+            Step1: On the application page, click " MongoDB 2.4" and click "Add Cartridge". This is the server 
+            of MongoDb. After successfully added, OpenShift will provide the Database information.
+            <pre class="OS_info">
+MongoDB 2.4 database added.  Please make note of these credentials:
+
+    Root User:     admin
+    Root Password: z1NfRzrxNy_L
+    Database Name: experimentapp
+
+Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
+            </pre>
+            <br />
+
+            <b>3. Use MongoDB on local app</b><br />
+            Use the following code to import mongojs and create a database for this app.
+            <pre class="OS_info">
+var mongojs = require('mongojs');
+var db = mongojs("experimentapp", ["books"]);
+            </pre>
+            The following code adds book1 object into data base:
+            <pre class="OS_info">
+db.books.insert(book1, function (err, data) {
+    console.log(err);
+    console.log(data);
+    res.json(data)
+});
+            </pre>
+            <br />
+            <br />
+            Step2: Then click "Add RockMongo 1.1" and click "Add Cartridge". This is the client of MongoDB. After 
+            successfully added, OpenShift will provide its information.
+            <pre class="OS_info">
+Please make note of these MongoDB credentials:
+    RockMongo User: admin
+    RockMongo Password: z1NfRzrxNy_L
+URL: https://experimentapp-ruiyuxu.rhcloud.com/rockmongo/
+            </pre>
+        </p>
+    </div>
+    <div class="container" ng-controller="ExpAppCtrl">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="experimentapp.name"/>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="create()">Add</button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>{{book.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <hr />
+        <h2>Source</h2>
+        <a href="server.js" target="_blank">server.js</a>
+        <br />
+        <a href="http://experimentapp-ruiyuxu.rhcloud.com/helloworld" target="_blank">First trial on OpenShift</a>
+        <a ></a>
+        <h2>Reference</h2>
+    </div>
+
+
+    <!--iframe id="storyFrame" width="100%" height="100px"
+        frameborder="0" marginwidth="0px" marginheight="0px" ></!--iframe-->
+</body>
+</html>

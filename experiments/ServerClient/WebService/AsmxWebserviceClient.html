@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../javascript/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.css" type="text/css"/>
+    <script src="getWidgets.js"></script>
+
+</head>
+<body>
+    <h1>Experiment: Asmx Web Service</h1>
+    <p>This experiemnt is related to the project. It uses the Web Service method to
+        implement web service.
+    </p>
+    <br />
+    <div class="container">  
+        <h2>Experiment Details</h2>  
+        <p>This experiment is based on Ajax and WebService</p> 
+        <p>
+            AJAX = Asynchronous JavaScript and XML.<br />
+            AJAX is a technique for creating fast and dynamic web pages.<br />
+            AJAX allows web pages to be updated asynchronously by exchanging small 
+            amounts of data with the server behind the scenes. This means that it 
+            is possible to update parts of a web page, without reloading the whole 
+            page.<br />
+            Classic web pages, (which do not use AJAX) must reload the entire page 
+            if the content should change.<br />
+            AJAX is based on internet standards, and uses a combination of:
+        </p>
+        <ul>
+            <li>XMLHttpRequest object (to exchange data asynchronously with a server)</li>
+            <li>JavaScript/DOM (to display/interact with the information)</li>
+            <li>CSS (to style the data)</li>
+            <li>XML (often used as the format for transferring data)</li>
+        </ul>
+        <p>Example of using Ajax is: Google Suggest. It is using AJAX to create a very 
+            dynamic web interface: When you start typing in Google's search box, a 
+            JavaScript sends the letters off to a server and the server returns a list 
+            of suggestions.</p>
+        <h3>Get All Widgets</h3>
+        <p>In the Widgets Service class, we pre-generated a list of widgets
+        </p>
+        <pre>
+public WidgetsService(){
+    widgets = new List&lt;Widget>();
+    Widget w1 = new Widget(123, "H1 HTML", 100, 200, 300, 400, "H1");
+    Widget w2 = new Widget(234, "DIV HTML", 100, 200, 300, 400, "DIV");
+    Widget w3 = new Widget(345, "P HTML", 100, 200, 300, 400, "P");
+    Widget w4 = new Widget(456, "YOU TUBE HTML", 100, 200, 300, 400, "YOU_TUBE");
+    widgets.Add(w1);
+    widgets.Add(w2);
+    widgets.Add(w3);
+    widgets.Add(w4);
+}
+        </pre>
+        <p>To get all widgets and display them in a list, click the "Get All Widgets"
+            button
+        </p>
+        <button class="getAllWidgetsBtn btn btn-primary btn-block">Get All Widgets</button>
+        <ul class="allWidgets">            
+        </ul>
+        <p>
+            We have a getAllWidgetsBtnHandler, and in the button handler
+        </p>
+        <pre>
+function getAllWidgetsBtnHandler() {
+    getAllWidgets(renderAllWidgets);
+}
+        </pre>
+        <p>In the handler, we call the function getAllWidgets and pass a callback
+            renderAllWidgets
+        </p>
+        <p>The response.d is the wrapper of all widgets.</p>
+        <pre>
+function getAllWidgets(callback) {
+    $.ajax({
+        url: "http://localhost:2063/RuiyuXU_Web/WidgetsService.asmx/getAllWidgets",
+        contentType: "application/json",
+        success: function (response) {
+            if (typeof callback == "function") {
+                callback(response.d);
+            }
+        }
+    });
+}
+        </pre>
+        <p>
+            The renderAll Widgets will render all widget passed in on the web page. 
+            It generate a li element for each widget and append them to the ul
+        </p>
+        <pre>
+function renderAllWidgets(widgets) {
+    console.log(widgets);
+    var ul = $(".allWidgets");
+    for (var w in widgets) {
+        var widget = widgets[w];
+        var li = $("&lt;li>").append(widget.id);
+        ul.append(li);
+    }
+}
+        </pre>
+        <br />
+        <p>You also can get a widget by its ID. For now, we have widgets 123,234,345,
+            456, type one of the widgets into the input box, then click the button
+            "Get Widget By ID, then you will see the id, top, html of the widget"
+        </p>
+        <p></p>
+        <h3>Get Widget By ID</h3>
+        <input class="id form-control"/>
+        <button class="getById btn btn-primary">Get By Id</button>
+        <label class="widget-id"></label>
+        <label class="widget-top"></label>
+        <label class="widget-html"></label>
+        <p>The getByIdhandler is</p>
+        <pre>
+function getByIdHandler() {
+    var id = $(".id").val();
+    getWidgetById(id, renderWidget);
+}
+        </pre>
+        <p>The getWidgetById method will get the id and a callback, renderWidget.
+        </p>
+        <pre>
+function getWidgetById(id, callback) {
+    // ajax allows us to do asycrhonize java, xml, queries
+    // We use post we we are sending data           
+    $.ajax({
+        url: "http://localhost:2063/RuiyuXU_Web/WidgetsService.asmx/getWidgetById",
+        contentType: "application/json",
+        data: { id: id },
+        success: function (response) {
+            callback(response.d);
+        }
+    });
+}
+        </pre>
+    </div>
+    <hr />
+
+    <br />
+    <div>
+        <br />
+        <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/ServerClient/WebService/AsmxWebserviceClient.html" target="_blank">HTML</a>
+        <br />
+        <a href="../../../fileview/Default.aspx?~/app_code/Widget.cs" target="_blank">Widget class</a>
+        <br />
+        <a href="../../../fileview/Default.aspx?~/app_code/WidgetsService.cs" target="_blank">Widget service class</a>
+        <br />
+        <h2>Reference</h2>
+        <a href="https://www.youtube.com/watch?v=qk03ZcjP5Gc&list=UUCgliN1n-OaiYJbZV8gypNA&index=9" target="_blank">Professor Annunziato's vedio</a>
+    </div>
+</body>
+</html>

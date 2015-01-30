@@ -1,0 +1,70 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MuseScore.com OEmbed example</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/experimentcss.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="oembed.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Experiment: Sheet Music Player</h1>
+        <p>
+            This experiemnt is related to my project
+            In this experiment, I use the MuseScore API and some sample java script to play
+            sheet music in browser.
+        </p>
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p>
+            <b>1.</b> About Oembed<br />
+            oEmbed is an open standard for embedding external content into 
+            a website. In the case of MuseScore.com, it will embed the 
+            score player for a given score. You can use any URL of any 
+            score to obtain the embed code for it. To find out more about 
+            oEmbed, view the spec or check out Webmonkey’s Get Started With 
+            oEmbed tutorial.
+            <br />
+            <a href="http://www.webmonkey.com/2010/02/get_started_with_oembed/">
+                Here
+            </a> is the link for oembed
+            <b>2.</b> All we need in this web page is just a line of javascript to 
+            load the sheet music player.
+            <br />
+            In the following code, we send a url of music sheet to to get a sheet music.
+            and use oembed to play it. THe "nicolas" is the author of the sheet music
+            and the "golliwoggs-cakewalk" is the title of the sheet music.
+            <br />
+            All the sheet music are from MuseScore.com
+            <pre>
+&lt;script type="text/javascript">
+    $(document).ready(function () {
+        //Any score url can be used, http://musescore.com/score/XXX http://musescore.com/node/XXX http://mus.cr/YYY etc...
+        $("#container").oembed("http://musescore.com/nicolas/golliwoggs-cakewalk" /*,{maxWidth: 1024}*/);
+    });
+&lt;/script>
+</pre>
+            <br />
+        </p>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        		//Any score url can be used, http://musescore.com/score/XXX http://musescore.com/node/XXX http://mus.cr/YYY etc...
+                $("#container").oembed("http://musescore.com/nicolas/golliwoggs-cakewalk" /*,{maxWidth: 1024}*/);
+        });
+    </script>
+    <div id="container"></div>
+    <div>
+    <h2>Source</h2>
+        <a href="../../../fileview/Default.aspx?~/experiments/MusicAPI/PlaySheetMusic/index.html" target="_blank">HTML</a>
+    <br />
+        <a href="../../../fileview/Default.aspx?~/experiments/MusicAPI/PlaySheetMusic/oembed.js" target="_blank">JavaScript</a>
+    <h3>Reference</h3>
+        <a href="http://developers.musescore.com/" target="_blank">Muse Score developer API</a>
+    <br />
+        <a href="https://github.com/musescore-com/api/wiki/oEmbed-API" target="_blank">oEmbed API</a>
+    </div>
+</body>
+</html>

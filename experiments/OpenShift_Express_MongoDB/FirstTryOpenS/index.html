@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<!--
+    File: index.htm
+    ... main page for the HTML
+    
+    Copyright 2014,
+    Ruiyu Xu,
+    College of Computer and Information Science
+    Northeastern University, Boston, MA 02115
+    rheaxu@ccs.neu.edu
+    
+    Sept. 2014
+-->
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+        content="initial-scale=1, minimum-scale=1">
+
+    <title>Experiment: First try on OpenShift</title>
+
+    <link rel="Stylesheet" type="text/css" href="../../css/story.css" />
+    <link href="../../css/snippet.css" rel="Stylesheet" />
+    
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <style>
+        pre.OS_info {
+            word-wrap:break-word;
+            background-color: lightgray;
+            font-size:medium;
+            border:2px, solid, black;
+        }
+        img.url {
+            width:100%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="pageHead" class="relative">
+        <h1>Experiment: First Try on OpenShift</h1>
+        <p>This experiment creates an online app on Openshift with NodeJs, MongoDB. It will be run locally 
+            and pushed to OpenShift for remotely run. This is the first try
+            on OpenShift, so it only builds a webpage showing "Hello World!!!"
+        </p>
+        <hr />
+
+        <h2>Details of the experiments:</h2>
+        <p>
+            <b>Step1:</b> Open an account on <a href="https://www.openshift.com/" target="_blank">OpenShift</a>,
+            <br />
+            <b>Step2:</b> In the <a href="https://openshift.redhat.com/app/console/applications" target="_blank">Applications page</a>,
+            click the "Add Application" button. From the "Other types" list, choose the "Node.js 0.10". Edit the "Public 
+            URL" as follows.
+            <br />
+            <a href="../../images/OS_url.png" target="_blank">
+                <img src="../../images/OS_url.png" class="url" alt="OpenShift URL" title="OpenShift URL"/>
+            </a>
+            <br />
+            And then click "Create Application". After being successfully created, OpenShift will provide git information
+            for this application.
+            <pre class="OS_info">
+git clone ssh://5435802750044625c400047e@experimentapp-ruiyuxu.rhcloud.com/~/git/experimentapp.git/
+cd experimentapp/
+            </pre>
+            Click "Continue to the application overview page".
+            <br />
+            <b>Step3:</b> Go to the directory ~\Experiments\experimentfiles, use git to 
+            clone the remote openshift apps to the local directory. Then the directory experimentapp will 
+            be created.
+            <br />           
+            <b>Step4:</b> Go to  ~\Experiments\experimentfiles\experimentapp, use nodejs to install express and 
+            mongojs.
+            <pre class="OS_info">
+                npm install express
+                npm install mongojs
+            </pre>
+            <b>Step5:</b> Modify the server.js. For the first trial of the openshift, I just let it show "Hello 
+            World" on the web page. 
+            <pre class="OS_info">
+var express = require("express");
+var app = express();
+
+app.get('/helloworld', function (req, res) {
+    res.send("Hello World!!!");
+});
+
+app.listen(3000);
+            </pre>
+            The local url of the Hello World app is <br />
+            localhost:3000/helloworld<br />
+            <b>Step6:</b> Now let's change some parameters for running on the openshift
+            <pre class="OS_info">
+var express = require("express");
+var app = express();
+
+app.get('/helloworld', function (req, res) {
+    res.send("Hello World!!!");
+});
+
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
+app.listen(port, ipaddress);
+            </pre>
+            <b>Step7:</b> After it can successfully run on the local machine, we can push it up to the openshift.
+            <pre class="OS_info">
+git add .
+git commit -m "First experiment on openshift"
+git push
+            </pre>
+        </p>
+
+        <hr />
+        <h2>Source</h2>
+        <a href="server.js" target="_blank">server.js</a>
+        <br />
+        <a href="http://experimentapp-ruiyuxu.rhcloud.com/helloworld" target="_blank">First trial on OpenShift</a>
+        <a ></a>
+        <h2>Reference</h2>
+        <a href="https://openshift.redhat.com/" target="_blank">OpenShift Official website</a>
+        
+
+    </div>
+
+
+    <!--iframe id="storyFrame" width="100%" height="100px"
+        frameborder="0" marginwidth="0px" marginheight="0px" ></!--iframe-->
+</body>
+</html>

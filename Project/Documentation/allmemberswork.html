@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sheet Music Collection and Photo Gallery of all members</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/doc.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Sheet Music Collection and Pohoto Gallery of all members</h1>
+        <p>Both guest (unregistered users) and member (registered users) can use this function</p>
+        <a href="../sheetMusicGallery.aspx" target="_blank">Go to All Members' Sheet Music Collection Page</a>
+        <br />
+        <a href="../photoGallery.aspx" target="_blank">Go to All Members' Photo Gallery Page</a>
+        <hr />
+        <h2>1. How to access to these two pages</h2>
+        <p>You can navigate to All Members' Sheet Music Collection Page by clicking the "Sheet Music" button 
+        in the navigation bar. <a target="_blank" href="header.html">See Header Documentation</a></p>
+        <p>
+            You can navigate to All Members' Photo Gallery Page by clicking the "Photo" button
+            in the navigation bar. <a target="_blank" href="header.html">See Header Documentation</a>
+        </p>
+        <h2>2. All Members' Sheet Music page</h2>
+        <p>This part is a table that show all the sheet music collected by our members. They are ranked by
+        their "likes" count.</p>     
+        <p>The owernames name are shown in the table, by clicking their names, you can go to their profile.</p>
+        <p>In each row, you can click either "Preview" or "Detail" (guests will be asked to login first) to 
+        see the sheet music.</p>  
+        <a href="smdetail.html" target="_blank">See the documentation of Sheet Music Detail Page</a><br />
+        <p>Those sheet musics are selected by the following Linq code:</p>  
+        <pre>
+var msmObjList = context.memberSheetMusics.OrderByDescending(p => p.likes).ToList();
+popularSMRepeater.DataSource = msmObjList;
+popularSMRepeater.DataBind();
+memberRepeater.DataSource = context.AuthUsers.ToList();
+memberRepeater.DataBind();
+        </pre>
+        <div class="displaycenter">
+            <img  class="bigimg" src="images/allsm.png"/>
+        </div>
+        <h2>3. All Members' Photo Page</h2>
+        <p>
+            This part is a slide that show all the photo collected by our members. They are ranked by
+            their "likes" count.
+        </p>
+        <p>There is a photo slide on this page, by clicking the arrows on left and right side, you can preview
+        the most popular photos.</p>
+        <p>By clicking any one photo in the slide, you wil be navigated to the photo detail page of this photo.
+        (Guests will be asked to login first)</p>
+        <a href="imgdetail.html" target="_blank">See the documentation of Photo Detail Page</a><br />
+        <pre>
+var mpObjList = context.memberPhotos.OrderByDescending(p => p.likes).ToList();
+popular_repeater.DataSource = mpObjList;
+popular_repeater.DataBind();
+        </pre>  
+        <div class="displaycenter">
+            <img class="bigimg" src="images/allphoto.png" />
+        </div> 
+        <h2>4. All Our Members List</h2>
+        <p>In both pages, there is a "All Our Members" section at the bottom. It lists all the current members
+         of our website. By clicking their name, you will be navigated to their profile.</p>
+        <div class="displaycenter">
+            <img class="bigimg" src="images/allmembers.png" />
+        </div> 
+        <br /><hr />
+        <h1>Link to files:</h1>
+        <a href="../sheetMusicGallery.aspx" target="_blank">All members' Sheet Musics</a><br />
+        <a href="../photoGallery.aspx" target="_blank">All members' Photos</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/sheetMusicGallery.aspx" target="_blank">Source code of All members' Sheet Music</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/sheetMusicGallery.aspx.cs" target="_blank">Source code of All members' Sheet Music C# code</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/photoGallery.aspx" target="_blank">Source code of All members' Photo</a><br />
+        <a href="../../fileview/Default.aspx?~/Project/photoGallery.aspx.cs" target="_blank">Source code of All members' Photo C# code</a>
+        <br /><br />
+    </div>
+</body>
+</html>
